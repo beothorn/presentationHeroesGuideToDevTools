@@ -30,12 +30,34 @@ But sometimes everything looks fine, until it isn't.
 
 Sometimes things goes weird and it is hard to understand what is going on.
 
-If you can't see what is going on then 
+And where you start looking to solve these issues? 
 
 ## When you are in a bad situation, what can help you
 
 When this happens, it is good to have all the help you can get. 
-Access to the db, logs 
+
+Access to the db, logs, remote debugging, directly connecting to your server.
+
+Those all work but it is hard to decide where to start.
+
+## As you fail you learn
+
+Every issue is diferent, but the starting point is doing a sanity check.
+
+Is the basic stuff in order?
+
+You can reach a big chunck of the errors just doing basic checks.
+
+You can learn things to check by investigating new errors.
+
+I used to use postman and other rest clients to look at this information. 
+But they are not powerful enough. It is complicated to filter information,
+no mechanism to do complex stuff as reusing data from one query to the other.
+
+No output but jsons.
+
+A lot of copying, pasting and text searching
+
 
 ## A familiar tool that is more powerful than you thought
 
@@ -48,9 +70,12 @@ flexible and being the very thing your users have to use your system.
 For example, here we are, right now inside a browser. And I'll demonstrate to you
 that with some preparation, it can give you an edge when you need to investigate that nasty bug.
 
+First let me show you that chrome can show you
+
 ## Let's give ourselves superpowers
 
-Nothing comes for free. To be able to use 
+Nothing comes for free. To be able to use it you need to fail a lot. Learn what are the starting points
+to investigate issues and then create endpoints for you to easily access them.
 
 ## Super-speed
 
@@ -70,18 +95,13 @@ Add endpoints that allow you to query basic stuff.
 
 Add views that are not present on the regular version of the app using extensions.
 
-## Super-hearing
-
-
+Browse information integrated with the very ui user uses to input it.
 
 ## Super-strength
 
 Sometimes, you need to be able to change stuff on production, even if it is dangerous.
 Make yourself able to do this without burocracy.
 
-## Wait, but this is what rest clients do
-
-Yes, but chrome a lot more flexible than regular rest clients.
 
 ## Share your power
 
