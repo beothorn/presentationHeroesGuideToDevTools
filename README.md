@@ -19,6 +19,9 @@ Present myself
 
 ## How do we today
 
+When you follow the common practice of our industry, most of the time things are fine.
+We have unit tests to protect us, we have functional tests, we do QA, smoke tests and all of those let us sleep at night.
+
 ## Is that bad? Could it be better?
 
 ## When you are in a bad situation, what can help you
