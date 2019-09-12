@@ -211,7 +211,7 @@
 					data-expected-duration="5m"
 					data-background-color="#36bbbb"
 				>
-					Super-strength
+					Super-strength <a id="enableSuperStrength" style="margin-left: 30px" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Enable superpowers</a>
 					<div id="superStrengthForm">
 						<ul class="list-group">
 						  <li class="list-group-item">
@@ -222,7 +222,7 @@
 							<div class="btn-group" role="group" aria-label="...">
 							  <button type="button" class="btn btn-default">Client list:</button>
 							  <button id="clientList" type="button" style="color: gray" class="btn btn-default">Alice, Bob, Carol</button>
-							  <button id="editClientList" type="button" class="btn btn-primary">Edit List</button>
+							  <button style="display: none" id="editClientList" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Edit List</button>
 							</div>
 						  </li>
 						</ul>
@@ -333,6 +333,11 @@
 				document.getElementById("clientList").contentEditable = true
 				document.getElementById("clientList").spellcheck = false
 				document.getElementById("clientList").style.color = "black"
+			});
+
+			let enableSuperStrength = document.getElementById("enableSuperStrength")
+			enableSuperStrength.addEventListener("click", () =>{
+				document.getElementById("editClientList").style.display = "block"
 			});
 
 
