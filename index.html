@@ -40,6 +40,18 @@
 				background: #272822;
 				padding: 15px;
 			}
+			#superVisionForm{
+				margin-top: 20px;
+				border: 9px solid #fff;
+				background: #272822;
+				padding: 15px;
+			}
+			#superStrengthForm{
+				margin-top: 20px;
+				border: 9px solid #fff;
+				background: #272822;
+				padding: 15px;
+			}
 		</style>
 	</head>
 	<body>
@@ -148,6 +160,39 @@
 					data-background-color="#dede38"
 				>
 					Super-vision
+					<a id="enableSuperVision" style="margin-left: 30px" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Enable superpowers</a>
+					<div id="superVisionForm">
+						<ul class="list-group">
+						  <li class="list-group-item">
+							<div class="btn-group" role="group" aria-label="...">
+							  <button type="button" class="btn btn-default">Seller:</button>
+							  <button type="button" class="btn btn-default">Dan</button>
+							</div>
+							<div class="btn-group" role="group" aria-label="...">
+							  <button type="button" class="btn btn-default">Client list:</button>
+							  <button type="button" class="btn btn-default">Alice, Bob, Carol</button>
+							</div>
+						  </li>
+						</ul>
+						<ul id="superVisionMetadata" style="display: none" class="list-group">
+						  <li class="list-group-item">
+							<div class="btn-group" role="group" aria-label="...">
+							  <button type="button" class="btn btn-default">Present on last store report:</button>
+							  <button type="button" class="btn btn-default">True</button>
+							</div>
+							<div class="btn-group" role="group" aria-label="...">
+							  <button type="button" class="btn btn-default">Has apply discount permissions:</button>
+							  <button type="button" class="btn btn-default">False</button>
+							</div>
+						  </li>
+						</ul>
+					</div>
+				</section>
+				<section
+					data-expected-duration="5m"
+					data-background-color="#dede38"
+				>
+					Super-vision
 					<pre><code data-trim>
 					await DEV.getSalesUntilDate("2019-02-02")
 					  .then(cs => cs.map( c => c.articles ))
@@ -167,6 +212,32 @@
 					data-background-color="#36bbbb"
 				>
 					Super-strength
+					<div id="superStrengthForm">
+						<ul class="list-group">
+						  <li class="list-group-item">
+							<div class="btn-group" role="group" aria-label="...">
+							  <button type="button" class="btn btn-default">Seller:</button>
+							  <button type="button" class="btn btn-default">Dan</button>
+							</div>
+							<div class="btn-group" role="group" aria-label="...">
+							  <button type="button" class="btn btn-default">Client list:</button>
+							  <button id="clientList" type="button" style="color: gray" class="btn btn-default">Alice, Bob, Carol</button>
+							  <button id="editClientList" type="button" class="btn btn-primary">Edit List</button>
+							</div>
+						  </li>
+						</ul>
+					</div>
+				</section>
+				</section>
+				<section
+					data-expected-duration="5m"
+					data-background-color="#36bbbb"
+				>
+					Super-strength
+					<pre><code data-trim>
+						DEV.addSaleToClient(clientName, article, price)
+				    </code></pre>
+				
 				</section>
 				<section
 					data-expected-duration="2m"
@@ -210,7 +281,7 @@
 			const timer = document.getElementById("timer")
 
 			Reveal.addEventListener( 'slidechanged', function( event ) {
-				console.log(event)
+				//console.log(event)
 				if(event.currentSlide.dataset["expectedDuration"]){
 					const expectedDurationStr = event.currentSlide.dataset["expectedDuration"]
 					let expectedDuration = 0
@@ -241,7 +312,7 @@
 			  .reduce((a,b) => a + b, 0)
 			
 			console.log(`Expected duration: ${expectedTotalTime/60} minutes`)
-			//slide code
+			//slide code, this part would be he extension part
 			let superSpeedFill = document.getElementById("superSpeedFill")
 			superSpeedFill.addEventListener("click", () =>{
 				document.getElementById("superSpeedFormUsername").value = "Alice"
@@ -252,52 +323,98 @@
 				}, 1000 )
 			});
 
+			let enableSuperVision = document.getElementById("enableSuperVision")
+			enableSuperVision.addEventListener("click", () =>{
+				document.getElementById("superVisionMetadata").style.display = "block"
+			});
+
+			let editClientList = document.getElementById("editClientList")
+			editClientList.addEventListener("click", () =>{
+				document.getElementById("clientList").contentEditable = true
+				document.getElementById("clientList").spellcheck = false
+				document.getElementById("clientList").style.color = "black"
+			});
+
+
+			//Pretend this data comes from your rest api ;)
+			let backendState = [
+				{
+					"client": "Alice",
+					"articles": [
+						{
+							"name": "computer",
+							"price": 1200
+						},
+						{
+							"name": "mouse",
+							"price": 10
+						},
+						{
+							"name": "keyboard",
+							"price": 30
+						}
+					]
+				},
+				{
+					"client": "Bob",
+					"articles": [
+						{
+							"name": "monitor",
+							"price": 200
+						},
+						{
+							"name": "chair",
+							"price": 80
+						}
+					]
+				},
+				{
+					"client": "Carol",
+					"articles": [
+						{
+							"name": "monitor",
+							"price": 200
+						},
+						{
+							"name": "chair",
+							"price": 80
+						}
+					]
+				}
+			]
+
 			let DEV = {
-				getSalesUntilDate : () => Promise.resolve([
-					{
-						"client": "Alice",
-						"articles": [
-							{
-								"name": "computer",
-								"price": 1200
-							},
-							{
-								"name": "mouse",
-								"price": 10
-							},
-							{
-								"name": "keyboard",
-								"price": 30
-							}
-						]
-					},
-					{
-						"client": "Bob",
-						"articles": [
-							{
-								"name": "monitor",
-								"price": 200
-							},
-							{
-								"name": "chair",
-								"price": 80
-							}
-						]
-					},
-					{
-						"client": "Carol",
-						"articles": [
-							{
-								"name": "monitor",
-								"price": 200
-							},
-							{
-								"name": "chair",
-								"price": 80
-							}
-						]
-					}
-				])
+				getSalesUntilDate : () => Promise.resolve(backendState),
+				addSaleToClient : (clientName, articleName, price) => {
+					let clientWithArticles = backendState.find(c => c.client == clientName)
+					clientWithArticles.articles.push(
+						{name: articleName, price}
+					)
+				},
+				showArticlesForClient : (clientName) => {
+					console.table(
+						backendState.find(c => c.client == clientName).articles
+					)
+				},
+				showWeekInSales : () => {
+					let c = document.createElement("canvas")
+					c.style.display = "none"
+					c.width = 1000
+					var ctx = c.getContext("2d");
+					ctx.fillStyle = "white"
+					ctx.fillRect(0, 0, 500, 500);
+					ctx.moveTo(0, 100);
+					ctx.lineTo(100, 50);
+					ctx.stroke();
+					ctx.lineTo(200, 100);
+					ctx.stroke();
+					ctx.lineTo(300, 30);
+					ctx.stroke();
+					ctx.lineTo(400, 10);
+					ctx.stroke();
+					let pngUrl = c.toDataURL();
+					console.log("%c       ", `font-size: 100px; background: url(${pngUrl}) no-repeat`)
+				}
 			}
 
 		</script>

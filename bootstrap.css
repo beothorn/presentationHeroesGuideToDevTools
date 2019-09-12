@@ -3652,6 +3652,7 @@ tbody.collapse.in {
 .btn-group-vertical > .btn {
   position: relative;
   float: left;
+  font-size: -webkit-xxx-large;
 }
 .btn-group > .btn:hover,
 .btn-group-vertical > .btn:hover,
