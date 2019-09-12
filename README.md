@@ -24,7 +24,7 @@ We have unit tests to protect us, we have functional tests, we do QA, smoke test
 Even when we deploy, we can do it in a way that if we realize something went wrong we can go back.
 When everything is fine, everything is fine.
 
-## The villain
+## The Evil bug
 
 But sometimes everything looks fine, until it isn't. 
 
@@ -58,6 +58,9 @@ No output but jsons.
 
 A lot of copying, pasting and text searching
 
+You need to fail a lot. Learn what are the starting points
+to investigate issues and then create the tools for you to easily access them.
+
 
 ## A familiar tool that is more powerful than you thought
 
@@ -74,8 +77,6 @@ First let me show you that chrome can show you
 
 ## Let's give ourselves superpowers
 
-Nothing comes for free. To be able to use it you need to fail a lot. Learn what are the starting points
-to investigate issues and then create endpoints for you to easily access them.
 
 ## Super-speed
 
@@ -86,6 +87,8 @@ Learn the fetch api.
 Use the mutation observer to inject buttons that fills boilerplate.
 
 Jump from screen to screen.
+
+## Super-speed demo
 
 ## Super-vision
 
@@ -102,6 +105,7 @@ Browse information integrated with the very ui user uses to input it.
 Sometimes, you need to be able to change stuff on production, even if it is dangerous.
 Make yourself able to do this without burocracy.
 
+## Just another tool on your toolbelt
 
 ## Share your power
 

@@ -10,6 +10,8 @@
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
 
+		<link rel="stylesheet" href="bootstrap.css">
+
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/monokai.css">
 
@@ -29,6 +31,15 @@
 			  height: 2px;
 			  background-color: #000000
 			}
+			.input-group{
+				padding: 5px;
+				font-size: 20px;
+			}
+			#superSpeedForm{
+				border: 9px solid #fff;
+				background: #272822;
+				padding: 15px;
+			}
 		</style>
 	</head>
 	<body>
@@ -40,25 +51,26 @@
 					data-background-color="#b11818"
 				>
 					A hero's guide to developing with Chrome Dev Tools
+					<img src="qrcode.png" />
 				</section>
 				<section 
 					data-name="introduction" 
 					data-expected-duration="1m" 
-					data-background-color="#2222b9"
+					data-background-color="#26bd26"
 				>
 					Hi, I like to develop software
 				</section>
 				<section 
 					data-expected-duration="30s" 
-					data-background-color="#26bd26"
+					data-background-color="#2222b9"
 				>
-					How do we today
+					Everything is fine when everything is fine
 				</section>
 				<section 
 					data-expected-duration="2m"
 					data-background-color="#dede38"
 				>
-					Is that bad? Could it be better?
+					The Evil bug
 				</section>
 				<section 
 					data-expected-duration="2m"
@@ -68,12 +80,20 @@
 				</section>
 				<section
 					data-expected-duration="5m"
+					data-background-color="#2222b9"
+				>
+					<p>As you fail you learn</p>
+					<p>The obvious is powerful</p>
+					<p>Small gains add up to a big gain</p>
+				</section>
+				<section
+					data-expected-duration="5m"
 					data-background-color="#36bbbb"
 				>
 					A familiar tool that is more powerful than you thought
 				</section>
 				<section
-					data-expected-duration="5m" 
+					data-expected-duration="10s" 
 					data-background-color="#b11818"
 				>
 					Surprise, we're in a browser
@@ -82,7 +102,7 @@
 					data-expected-duration="5m"
 					data-background-color="#2222b9"
 				>
-					Let's give ourselves superpowers
+					Let's give ourselves superpowers using extensions
 				</section>
 				<section
 					data-expected-duration="5m"
@@ -92,15 +112,55 @@
 				</section>
 				<section
 					data-expected-duration="5m"
+					data-background-color="#26bd26"
+				>
+					
+					<p><label for="basic-url">Some big form standig in your way</label><a id="superSpeedFill" style="margin-left: 30px" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Fill Form</a></p>
+					
+					<div id="superSpeedForm">
+						<div class="input-group">
+						  <span class="input-group-addon" id="basic-addon1">@</span>
+						  <input id="superSpeedFormUsername" type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+						</div>
+
+						<div class="input-group">
+						  <input id="superSpeedFormEmail" type="text" class="form-control" placeholder="Contact email" aria-describedby="basic-addon2">
+						  <span class="input-group-addon" id="basic-addon2">@example.com</span>
+						</div>
+
+
+						<div class="input-group">
+						  <span class="input-group-addon" id="basic-addon3">Plan</span>
+						  <input id="superSpeedFormPlan" type="text" class="form-control" id="basic-url" placeholder="Something" aria-describedby="basic-addon3">
+						</div>
+						<a style="margin-left: 30px" class="btn btn-primary btn-lg" role="button">Save</a>
+					</div>
+					
+				</section>
+				<section
+					data-expected-duration="5m"
 					data-background-color="#dede38"
 				>
 					Super-vision
 				</section>
 				<section
 					data-expected-duration="5m"
-					data-background-color="#c332c3"
+					data-background-color="#dede38"
 				>
-					Super-hearing
+					Super-vision
+					<pre><code data-trim>
+					await DEV.getSalesUntilDate("2019-02-02")
+					  .then(cs => cs.map( c => c.articles ))
+					  .then(as => as.flat())
+					  .then(as => as.map( as => as.price ))
+					  .then(ps => ps.reduce( (a, b) => a + b, 0 ) )
+				    </code></pre>
+				</section>
+				<section
+					data-expected-duration="5m"
+					data-background-color="#36bbbb"
+				>
+					Super-strength
 				</section>
 				<section
 					data-expected-duration="5m"
@@ -112,7 +172,7 @@
 					data-expected-duration="2m"
 					data-background-color="#b11818"
 				>
-					Is this enough?
+					Just another tool on your toolbelt
 				</section>
 				<section
 					data-expected-duration="2m"
@@ -141,6 +201,8 @@
 				]
 			});
 
+			//This code adds a subtle (i hope so) line over the slides
+			//when the expectedDuration is up, the line changes color
 			const timeInMinutes = 35
 
 			let startTime = 0
@@ -179,8 +241,64 @@
 			  .reduce((a,b) => a + b, 0)
 			
 			console.log(`Expected duration: ${expectedTotalTime/60} minutes`)
+			//slide code
+			let superSpeedFill = document.getElementById("superSpeedFill")
+			superSpeedFill.addEventListener("click", () =>{
+				document.getElementById("superSpeedFormUsername").value = "Alice"
+				document.getElementById("superSpeedFormEmail").value = "alice"
+				document.getElementById("superSpeedFormPlan").value = "SuperDuperDiscountPlan"
+				setTimeout(() => {
+					document.getElementById("superSpeedForm").innerHTML = "You can continue now"
+				}, 1000 )
+			});
 
-
+			let DEV = {
+				getSalesUntilDate : () => Promise.resolve([
+					{
+						"client": "Alice",
+						"articles": [
+							{
+								"name": "computer",
+								"price": 1200
+							},
+							{
+								"name": "mouse",
+								"price": 10
+							},
+							{
+								"name": "keyboard",
+								"price": 30
+							}
+						]
+					},
+					{
+						"client": "Bob",
+						"articles": [
+							{
+								"name": "monitor",
+								"price": 200
+							},
+							{
+								"name": "chair",
+								"price": 80
+							}
+						]
+					},
+					{
+						"client": "Carol",
+						"articles": [
+							{
+								"name": "monitor",
+								"price": 200
+							},
+							{
+								"name": "chair",
+								"price": 80
+							}
+						]
+					}
+				])
+			}
 
 		</script>
 	</body>
