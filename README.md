@@ -50,7 +50,9 @@ You can reach a big chunck of the errors just doing basic checks.
 
 You can learn things to check by investigating new errors.
 
-I used to use postman and other rest clients to look at this information. 
+Usually the starting point is calling the rest interface.
+
+I used to use rest clients to look at this information. 
 But they are not powerful enough. It is complicated to filter information,
 no mechanism to do complex stuff as reusing data from one query to the other.
 
