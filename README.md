@@ -17,7 +17,7 @@ Listen to my story and discover how you can add special debugging features for y
 
 Present myself
 
-## How do we today
+## Everything is fine when everything is fine
 
 When you follow the common practice of our industry, most of the time things are fine.
 We have unit tests to protect us, we have functional tests, we do QA, smoke tests and all of those let us sleep at night.
@@ -36,15 +36,17 @@ And where you start looking to solve these issues?
 
 When this happens, it is good to have all the help you can get. 
 
-Access to the db, logs, remote debugging, directly connecting to your server.
+Access to the db, logs (especially logs) , remote debugging, directly connecting to your server.
 
 Those all work but it is hard to decide where to start.
+
+But most of all you need a hero
 
 ## As you fail you learn
 
 Every issue is diferent, but the starting point is doing a sanity check.
 
-Is the basic stuff in order?
+You start small, is the basic stuff in order?
 
 You can reach a big chunck of the errors just doing basic checks.
 
