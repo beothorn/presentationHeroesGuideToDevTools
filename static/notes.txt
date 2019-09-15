@@ -1,0 +1,9 @@
+Explicar que vai usar as features de tyling e table do devtools
+
+Falta muita introdução, precisa explicar cada coisa antes
+Fazer uma extensão de verdade
+Fazer um server de verdade
+Deixar claro que os botões são injetados
+Explicar de onde veio o DEV
+Deixar claro que voce tem que escrever seus endpoints
+Perguntar se o tamanho do dev tools tá bom tá bom
