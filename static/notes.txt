@@ -5,5 +5,9 @@ Fazer uma extensão de verdade
 Fazer um server de verdade
 Deixar claro que os botões são injetados
 Explicar de onde veio o DEV
+Dar exemplos de verdade
+  Começar com um problema. Cliente não recebeu o email com os produtos entregues
+  - Temos no sistema que o motorista fez a entrega nesse diq pra esse cliente?
+  - O sistema diz q enviou o email?
 Deixar claro que voce tem que escrever seus endpoints
 Perguntar se o tamanho do dev tools tá bom tá bom

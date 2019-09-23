@@ -15,14 +15,24 @@ Listen to my story and discover how you can add special debugging features for y
 
 ## Who am I?
 
-Present myself
+I am a developer, and I like to code. The feeling of telling a computer to calculate something that you could not possibly do yourself and having a response is awesome.
+
+I am currently a fullstack developer in the app used by drivers delivering goods for the Metro Cash and Carry.
+
+The DriverApp lives inside the ecossystem of microservices inside Metronom and Metro, and is the bridge between deliveries and the rest of our system.
+
+It is a ReactApp packaged with Cordova, with a backend using Spring Boot, Java, Scala and Cassandra.
 
 ## Everything is fine when everything is fine
 
-When you follow the common practice of our industry, most of the time things are fine.
+And we follow the common practice of our industry.
 We have unit tests to protect us, we have functional tests, we do QA, smoke tests and all of those let us sleep at night.
-Even when we deploy, we can do it in a way that if we realize something went wrong we can go back.
-When everything is fine, everything is fine.
+
+We have a pre-production environment, where we can run manual tests.
+
+We have our docker image repository and our infrastructure on kubernetes, so if we realize something went wrong with our deploy we can revert to our last image with ease.
+
+And all this setup give us peace of mind. When everything is fine, everything is fine.
 
 ## The Evil bug
 
@@ -32,17 +42,19 @@ Sometimes things goes weird and it is hard to understand what is going on.
 
 And where you start looking to solve these issues? 
 
+Time to keep calm and put your superhero cape.
+
 ## When you are in a bad situation, what can help you
 
 When this happens, it is good to have all the help you can get. 
 
 Access to the db, logs (especially logs) , remote debugging, directly connecting to your server.
 
-Those all work but it is hard to decide where to start.
-
-But most of all you need a hero
+All those are really usefull, but I want to show you a tool that is usually not used, but can be a source of great insights and even, who knows, even save the day.
 
 ## As you fail you learn
+
+But first, I want to talk about how to investigate issues on production code.
 
 Every issue is diferent, but the starting point is doing a sanity check.
 
@@ -51,6 +63,8 @@ You start small, is the basic stuff in order?
 You can reach a big chunck of the errors just doing basic checks.
 
 You can learn things to check by investigating new errors.
+
+For example, on driver app the first thing to check is what deliveries where already synced and at what time. Seems simple but this eliminates a lot of problems that we would not be able to see if we went in another direction.
 
 Usually the starting point is calling the rest interface.
 

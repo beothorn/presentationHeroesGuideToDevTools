@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>A hero's guide to developing with Chrome Dev Tools</title>
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
@@ -52,6 +52,11 @@
 				background: #272822;
 				padding: 15px;
 			}
+     #heroImg{
+         position: absolute;
+         width: 316px;
+         margin-top: -235px;
+     }
 		</style>
 	</head>
 	<body>
@@ -84,16 +89,19 @@
 				>
 					The Evil bug
 				</section>
-				<section 
+				<section
+          data-slide-name="heroSlide"
 					data-expected-duration="2m"
 					data-background-color="#c332c3"
 				>
-					When you are in a bad situation, what can help you
+            <img id="heroImg" src="/img/hero.png" />
+					When you are in a bad situation, who can help you
 				</section>
 				<section
 					data-expected-duration="5m"
 					data-background-color="#2222b9"
 				>
+					<p>Sanity check, all things are in order</p>
 					<p>As you fail you learn</p>
 					<p>The obvious is powerful</p>
 					<p>Small gains add up to a big gain</p>
@@ -330,6 +338,19 @@
 				}else{
 					timer.style.display = "none"
 				}
+
+        if(event.currentSlide.dataset["slideName"] === "heroSlide"){
+            document.getElementById("heroImg").animate(
+              [
+                    { transform: 'translate3D(-500%, -500%, 0)'},
+                    { transform: 'translate3D(0%, 0%, 0)'}
+              ],
+              {
+                    duration: 3000,
+                    iterations: 1
+              }
+            )
+        }
 			} );
 			
 			let expectedTotalTime = Array.from(document.querySelectorAll(".slides section"))
