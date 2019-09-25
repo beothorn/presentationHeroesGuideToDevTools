@@ -25,10 +25,16 @@
 		</script>
 
 		<style>
+
+			p{
+				font-family: Verdana,Geneva,sans-serif;
+    			font-weight: bold;
+			}
+
 			#timer {
 			  position: relative;
 			  width: 100%;
-			  height: 2px;
+			  height: 15px;
 			  background-color: #000000
 			}
 			.input-group{
@@ -52,11 +58,45 @@
 				background: #272822;
 				padding: 15px;
 			}
-     #heroImg{
-         position: absolute;
-         width: 316px;
-         margin-top: -235px;
-     }
+			 #heroImg{
+				 position: absolute;
+				 width: 316px;
+				 margin-top: -235px;
+			 }
+			 #metrologo{
+			 	width: 282px;
+			 }
+
+			 #title-grid{
+			 	display: grid;
+			 	grid-template-columns: 0.1fr 1fr 1.9fr;
+			 	grid-template-rows: 0.7fr 1fr 1.3fr;
+			 	height: 15em;
+			 }
+
+			 #metro-logo-cell{
+			 	grid-column-start: 1; 
+    			grid-column-end: 4; 
+
+    			justify-self: start;
+			 }
+
+			 #qrcode-cell{
+			 	grid-column-start: 2; 
+			 	grid-row-start: 2; 
+    			grid-row-end: 4; 
+			 }
+
+			 #title-cell{
+			 	grid-column-start: 3; 
+				justify-self: start;
+			 }
+
+			 #autor-cell{
+			 	grid-column-start: 3; 
+			 	justify-self: end;
+			 	font-size: 26px;
+			 }
 		</style>
 	</head>
 	<body>
@@ -65,65 +105,69 @@
 			<div class="slides">
 				<section 
 					data-name="title" 
-					data-background-color="#b11818"
+					data-background-color="#333233"
 				>
-					A hero's guide to developing with Chrome Dev Tools
-					<img src="qrcode.png" />
+					<div id="title-grid">
+						<div id="metro-logo-cell"><img id="metrologo" src="img/white_yellow.png" /></div>
+						<div id="qrcode-cell"><img src="qrcode.png" /></div>
+						<div id="title-cell"><p>A hero's guide to developing with Chrome Dev Tools</p></div>
+						<div id="autor-cell"><p>Lucas Santos</p></div>
+					</div>
 				</section>
 				<section 
 					data-name="introduction" 
 					data-expected-duration="1m" 
-					data-background-color="#26bd26"
+					data-background-color="#254a27"
 				>
-					Hi, I like to develop software
+					<p>Hi, I like to develop software</p>
 				</section>
 				<section 
 					data-expected-duration="30s" 
-					data-background-color="#2222b9"
+					data-background-color="#1c1c4a"
 				>
-					Everything is fine when everything is fine
+					<p>Everything is fine when everything is fine</p>
 				</section>
 				<section 
 					data-expected-duration="2m"
-					data-background-color="#dede38"
+					data-background-color="#8e2c2c"
 				>
-					The Evil bug
+					<p>The Evil bug</p>
 				</section>
 				<section
-          data-slide-name="heroSlide"
+          			data-slide-name="heroSlide"
 					data-expected-duration="2m"
-					data-background-color="#c332c3"
+					data-background-color="#612261"
 				>
-            <img id="heroImg" src="/img/hero.png" />
-					When you are in a bad situation, who can help you
+					<p>When you are in a bad situation, who can help you</p>
 				</section>
 				<section
 					data-expected-duration="5m"
-					data-background-color="#2222b9"
+					data-background-color="#222269"
 				>
-					<p>Sanity check, all things are in order</p>
+					<p>Things are in order</p>
 					<p>As you fail you learn</p>
-					<p>The obvious is powerful</p>
-					<p>Small gains add up to a big gain</p>
+					<p>Obvious is powerful</p>
+					<p>Small gains => big gain</p>
 				</section>
 				<section
 					data-expected-duration="5m"
-					data-background-color="#36bbbb"
+					data-background-color="#234444"
 				>
 					A familiar tool that is more powerful than you thought
 				</section>
 				<section
 					data-expected-duration="10s" 
-					data-background-color="#b11818"
+					data-background-color="#881d1d"
 				>
 					Surprise, we're in a browser
 				</section>
 				<section
 					data-expected-duration="5m"
-					data-background-color="#2222b9"
+					data-background-color="#1c1c4a"
 				>
-					<p>Let's give ourselves superpowers using extensions</p>
-					<p>All you need is a manifest.json file</p>
+					<pre><code data-trim>
+					manifest.json
+					</code></pre>
 					<pre><code data-trim>
 					{
 						"name": "Getting Started Example",
@@ -139,7 +183,6 @@
 						"permissions": ["yourUrl"],
 					}
 					</code></pre>
-					<p>Then go to chrome://extensions > load unpacked</p>
 					<!--
 						Dev tools is a powerfull REPL. It can render tables. It can render images.
 						It can do requests using the fetch api
@@ -147,13 +190,13 @@
 				</section>
 				<section
 					data-expected-duration="5m"
-					data-background-color="#26bd26"
+					data-background-image="img/flash.jpg"
 				>
 					Super-speed
 				</section>
 				<section
 					data-expected-duration="5m"
-					data-background-color="#26bd26"
+					data-background-image="img/flash.jpg"
 				>
 					
 					<p><label for="basic-url">Some big form standig in your way</label><a id="superSpeedFill" style="margin-left: 30px" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Fill Form</a></p>
@@ -179,13 +222,13 @@
 				</section>
 				<section
 					data-expected-duration="5m"
-					data-background-color="#dede38"
+					data-background-image="img/superman.jpg"
 				>
 					Super-vision
 				</section>
 				<section
 					data-expected-duration="5m"
-					data-background-color="#dede38"
+					data-background-image="img/superman.jpg"
 				>
 					Super-vision
 					<a id="enableSuperVision" style="margin-left: 30px" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Enable superpowers</a>
@@ -218,7 +261,7 @@
 				</section>
 				<section
 					data-expected-duration="5m"
-					data-background-color="#dede38"
+					data-background-image="img/superman.jpg"
 				>
 					Super-vision
 					<pre><code data-trim>
@@ -231,13 +274,13 @@
 				</section>
 				<section
 					data-expected-duration="5m"
-					data-background-color="#36bbbb"
+					data-background-image="img/hulk.jpg"
 				>
 					Super-strength
 				</section>
 				<section
 					data-expected-duration="5m"
-					data-background-color="#36bbbb"
+					data-background-image="img/hulk.jpg"
 				>
 					Super-strength <a id="enableSuperStrength" style="margin-left: 30px" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Enable superpowers</a>
 					<div id="superStrengthForm">
@@ -259,7 +302,7 @@
 				</section>
 				<section
 					data-expected-duration="5m"
-					data-background-color="#36bbbb"
+					data-background-image="img/hulk.jpg"
 				>
 					Super-strength
 					<pre><code data-trim>
@@ -269,22 +312,21 @@
 				</section>
 				<section
 					data-expected-duration="2m"
-					data-background-color="#b11818"
+					data-background-image="img/belt.jpg"
 				>
 					Just another tool on your toolbelt
 				</section>
 				<section
 					data-expected-duration="2m"
-					data-background-color="#2222b9"
+					data-background-color="#1c1c4a"
 				>
 					Share your power
 				</section>
 				<section
 					data-expected-duration="2m"
-					data-background-color="#36bbbb"
+					data-background-color="#333233"
 				>
-					<p>THANK YOU</p>
-					<p>Questions?</p>
+					<p>QRCODE HERE</p>
 				</section>
 			</div>
 		</div>
@@ -298,6 +340,8 @@
 			Reveal.initialize({
 				controls: false,
 				progress: false,
+				transition: 'zoom',
+				backgroundTransition: 'none',
 				hash: true,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
@@ -338,20 +382,6 @@
 				}else{
 					timer.style.display = "none"
 				}
-
-        if(event.currentSlide.dataset["slideName"] === "heroSlide"){
-            document.getElementById("heroImg").animate(
-              [
-                    { transform: 'translate3D(-500%, -500%, 0)'},
-                    { transform: 'translate3D(0%, 0%, 0)'}
-              ],
-              {
-                  duration: 3000,
-                  iterations: 1,
-                  easing: "ease-out"
-              }
-            )
-        }
 			} );
 			
 			let expectedTotalTime = Array.from(document.querySelectorAll(".slides section"))
