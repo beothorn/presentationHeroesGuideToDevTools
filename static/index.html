@@ -212,6 +212,9 @@
 						It can do requests using the fetch api
 					-->
 				</section>
+				<section>
+					HERE GOES A GIF OF HOW TO INSTALL THE EXTENSION
+				</section>
 				<section
 					data-expected-duration="5m"
 					data-background-image="img/flash.jpg"
@@ -222,12 +225,11 @@
 					data-background-image="img/flash_back.jpg"
 				>
 					
-					<p><label for="basic-url">Some big form standig in your way</label><a id="superSpeedFill" style="margin-left: 30px" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Fill Form</a></p>
+					<p><label for="basic-url">To go on you need to load the deliveries on your truck</label><a id="superSpeedFill" style="margin-left: 30px" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Fill Form</a></p>
 					
 					<div id="superSpeedForm">
-						<div class="input-group">
-						  <span class="input-group-addon" id="basic-addon1">@</span>
-						  <input id="superSpeedFormUsername" type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+						<div>
+						  <p>potatoes</p><button>Load</button>
 						</div>
 
 						<div class="input-group">
@@ -442,88 +444,6 @@
 			enableSuperStrength.addEventListener("click", () =>{
 				document.getElementById("editClientList").style.display = "block"
 			});
-
-
-			//Pretend this data comes from your rest api ;)
-			let backendState = [
-				{
-					"client": "Alice",
-					"articles": [
-						{
-							"name": "computer",
-							"price": 1200
-						},
-						{
-							"name": "mouse",
-							"price": 10
-						},
-						{
-							"name": "keyboard",
-							"price": 30
-						}
-					]
-				},
-				{
-					"client": "Bob",
-					"articles": [
-						{
-							"name": "monitor",
-							"price": 200
-						},
-						{
-							"name": "chair",
-							"price": 80
-						}
-					]
-				},
-				{
-					"client": "Carol",
-					"articles": [
-						{
-							"name": "monitor",
-							"price": 200
-						},
-						{
-							"name": "chair",
-							"price": 80
-						}
-					]
-				}
-			]
-
-			let DEV = {
-				getSalesUntilDate : () => Promise.resolve(backendState),
-				addSaleToClient : (clientName, articleName, price) => {
-					let clientWithArticles = backendState.find(c => c.client == clientName)
-					clientWithArticles.articles.push(
-						{name: articleName, price}
-					)
-				},
-				showArticlesForClient : (clientName) => {
-					console.table(
-						backendState.find(c => c.client == clientName).articles
-					)
-				},
-				showWeekInSales : () => {
-					let c = document.createElement("canvas")
-					c.style.display = "none"
-					c.width = 1000
-					var ctx = c.getContext("2d");
-					ctx.fillStyle = "white"
-					ctx.fillRect(0, 0, 500, 500);
-					ctx.moveTo(0, 100);
-					ctx.lineTo(100, 50);
-					ctx.stroke();
-					ctx.lineTo(200, 100);
-					ctx.stroke();
-					ctx.lineTo(300, 30);
-					ctx.stroke();
-					ctx.lineTo(400, 10);
-					ctx.stroke();
-					let pngUrl = c.toDataURL();
-					console.log("%c       ", `font-size: 100px; background: url(${pngUrl}) no-repeat`)
-				}
-			}
 
 		</script>
 	</body>
