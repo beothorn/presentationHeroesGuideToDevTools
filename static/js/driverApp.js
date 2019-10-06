@@ -26,7 +26,6 @@ let loadArticles = (id) => {
 
     fetch(`/api/tours/${toursId}/deliveries`).then(r => r.json()).then( ds => {
         articlesList.innerHTML = ""
-        console.log(ds)
         for(d of ds){
             let article = d.article
             let loaded = d.loaded
