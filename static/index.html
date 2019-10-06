@@ -212,7 +212,10 @@
 						It can do requests using the fetch api
 					-->
 				</section>
-				<section>
+				<section
+					data-expected-duration="5m"
+					data-background-image="img/flash.jpg"
+				>
 					HERE GOES A GIF OF HOW TO INSTALL THE EXTENSION
 				</section>
 				<section
@@ -225,24 +228,12 @@
 					data-background-image="img/flash_back.jpg"
 				>
 					
-					<p><label for="basic-url">To go on you need to load the deliveries on your truck</label><a id="superSpeedFill" style="margin-left: 30px" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Fill Form</a></p>
+					<p><label for="basic-url">Load articles on truck</label></p>
 					
 					<div id="superSpeedForm">
-						<div>
-						  <p>potatoes</p><button>Load</button>
-						</div>
-
-						<div class="input-group">
-						  <input id="superSpeedFormEmail" type="text" class="form-control" placeholder="Contact email" aria-describedby="basic-addon2">
-						  <span class="input-group-addon" id="basic-addon2">@example.com</span>
-						</div>
-
-
-						<div class="input-group">
-						  <span class="input-group-addon" id="basic-addon3">Plan</span>
-						  <input id="superSpeedFormPlan" type="text" class="form-control" id="basic-url" placeholder="Something" aria-describedby="basic-addon3">
-						</div>
-						<a style="margin-left: 30px" class="btn btn-primary btn-lg" role="button">Save</a>
+						<ul id="articlesList">
+						</ul>
+						<a style="margin-left: 30px" class="btn btn-primary btn-lg" role="button">Continue</a>
 					</div>
 				</section>
 				<section
@@ -358,6 +349,8 @@
 		</div>
 
 		<script src="js/reveal.js"></script>
+		<script src="js/timeHint.js"></script>
+		<script src="js/driverApp.js"></script>
 
 		<script>
 			// More info about config & dependencies:
@@ -366,8 +359,7 @@
 			Reveal.initialize({
 				controls: false,
 				progress: false,
-				transition: 'zoom',
-				//backgroundTransition: 'none',
+				backgroundTransition: 'none',
 				hash: true,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
@@ -376,75 +368,6 @@
 					{ src: 'plugin/highlight/highlight.js', async: true }
 				]
 			});
-
-			//This code adds a subtle (i hope so) line over the slides
-			//when the expectedDuration is up, the line changes color
-			const timeInMinutes = 35
-
-			let startTime = 0
-			let intervalId = -1
-			const timer = document.getElementById("timer")
-
-			Reveal.addEventListener( 'slidechanged', function( event ) {
-				//console.log(event)
-				if(event.currentSlide.dataset["expectedDuration"]){
-					const expectedDurationStr = event.currentSlide.dataset["expectedDuration"]
-					let expectedDuration = 0
-					if(expectedDurationStr.endsWith("s")){
-						expectedDuration = parseInt(expectedDurationStr.split("s")[0])
-					} else{
-						expectedDuration = parseInt(expectedDurationStr.split("m")[0]) * 60
-					}
-					timer.style.display = "block"
-					timer.style.backgroundColor= "#000000"
-					if(intervalId) clearInterval(intervalId)
-					startTime = new Date().getTime();
-
-					intervalId = setInterval(() => {
-					   const now = new Date().getTime();
-					   const timePassedInSeconds = Math.floor( (now - startTime) / 1000 );
-					   if(timePassedInSeconds >= expectedDuration) timer.style.backgroundColor= "#aaaaaa"
-				   }, 500);
-				}else{
-					timer.style.display = "none"
-				}
-			} );
-			
-			let expectedTotalTime = Array.from(document.querySelectorAll(".slides section"))
-			  .map(s => s.dataset["expectedDuration"])
-			  .filter(d => d != null)
-			  .map(d => d.endsWith("s") ? parseInt(d.split("s")[0]) : parseInt(d.split("m")[0]) * 60)
-			  .reduce((a,b) => a + b, 0)
-			
-			console.log(`Expected duration: ${expectedTotalTime/60} minutes`)
-			//slide code, this part would be he extension part
-			let superSpeedFill = document.getElementById("superSpeedFill")
-			superSpeedFill.addEventListener("click", () =>{
-				document.getElementById("superSpeedFormUsername").value = "Alice"
-				document.getElementById("superSpeedFormEmail").value = "alice"
-				document.getElementById("superSpeedFormPlan").value = "SuperDuperDiscountPlan"
-				setTimeout(() => {
-					document.getElementById("superSpeedForm").innerHTML = "You can continue now"
-				}, 1000 )
-			});
-
-			let enableSuperVision = document.getElementById("enableSuperVision")
-			enableSuperVision.addEventListener("click", () =>{
-				document.getElementById("superVisionMetadata").style.display = "block"
-			});
-
-			let editClientList = document.getElementById("editClientList")
-			editClientList.addEventListener("click", () =>{
-				document.getElementById("clientList").contentEditable = true
-				document.getElementById("clientList").spellcheck = false
-				document.getElementById("clientList").style.color = "black"
-			});
-
-			let enableSuperStrength = document.getElementById("enableSuperStrength")
-			enableSuperStrength.addEventListener("click", () =>{
-				document.getElementById("editClientList").style.display = "block"
-			});
-
 		</script>
 	</body>
 </html>

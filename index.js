@@ -4,7 +4,9 @@ this is the code that simulates our system.
 It is just a giant JSON with some values inside.
 
 I just wanted to have some endpoints to call from my
-extension so don't expect to find any nice cod here :)
+extension so don't expect to find any nice code here :)
+
+For example, invalid calls don't return errors.
 
 This code is just enough to exemplify the idea
 of the presentation.
@@ -37,21 +39,21 @@ const db = {
             "deliveries":[
                 {
                     "id": 10,
-                    "article": "potatoes",
+                    "article": "Potatoes",
                     "quantity": 1,
                     "loaded": false,
                     "delivered": false,
                 },
                 {
                     "id": 11,
-                    "article": "tomatoes",
+                    "article": "Tomatoes",
                     "quantity": 2,
                     "loaded": false,
                     "delivered": false,
                 },
                 {
                     "id": 12,
-                    "article": "salt",
+                    "article": "Salt",
                     "quantity": 1,
                     "loaded": false,
                     "delivered": false,
@@ -68,14 +70,14 @@ const db = {
             "deliveries":[
                 {
                     "id": 13,
-                    "article": "burguer box",
+                    "article": "Burguer box",
                     "quantity": 10,
                     "loaded": false,
                     "delivered": false,
                 },
                 {
                     "id": 14,
-                    "article": "buns",
+                    "article": "Buns",
                     "quantity": 80,
                     "loaded": false,
                     "delivered": false,
@@ -92,14 +94,14 @@ const db = {
             "deliveries":[
                 {
                     "id": 15,
-                    "article": "potatoes",
+                    "article": "Potatoes",
                     "quantity": 8,
                     "loaded": false,
                     "delivered": false,
                 },
                 {
                     "id": 16,
-                    "article": "carrots",
+                    "article": "Carrots",
                     "quantity": 6,
                     "loaded": false,
                     "delivered": false,
@@ -116,14 +118,14 @@ const db = {
             "deliveries":[
                 {
                     "id": 17,
-                    "article": "potatoes",
+                    "article": "Potatoes",
                     "quantity": 3,
                     "loaded": false,
                     "delivered": false,
                 },
                 {
                     "id": 18,
-                    "article": "oil",
+                    "article": "Oil",
                     "quantity": 2,
                     "loaded": false,
                     "delivered": false,
@@ -151,6 +153,19 @@ app.get('/api/tours/:id/deliveries', (req, res) => {
     const tourId = parseInt(req.params.id)
     const tour = db.tours.find(t => t.id === tourId)
     res.send(tour.deliveries)
+})
+
+app.get('/api/tours/:id/deliveries/allLoaded', (req, res) => {
+    const tourId = parseInt(req.params.id)
+    let allLoaded = true
+    for(t of db.tours){
+        if(t.id === tourId){
+            for(d of t.deliveries){
+                if(!d.loaded) allLoaded = false
+            }
+        }
+    }
+    res.send({loaded: allLoaded})
 })
 
 const getDelivery = (id) => {

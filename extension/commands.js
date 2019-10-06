@@ -27,4 +27,33 @@ if(document.body.dataset['presentation']){
             console.log("%c       ", `font-size: 100px; background: url(${pngUrl}) no-repeat`)
         }
     }
+
+    let loadAllButton = document.createElement("button")
+    loadAllButton.appendChild(document.createTextNode("Load All"))
+
+    loadAllButton.addEventListener("click", () =>{
+        for(article of Array.from(document.querySelectorAll("#articlesList li input"))) {
+            if(!article.checked) article.click()
+        }
+    })
+
+    document.getElementById("superSpeedForm").appendChild(loadAllButton)
 }
+
+
+
+/*
+document.getElementById("enableSuperVision").addEventListener("click", () =>{
+    document.getElementById("superVisionMetadata").style.display = "block"
+});
+
+document.getElementById("editClientList").addEventListener("click", () =>{
+    document.getElementById("clientList").contentEditable = true
+    document.getElementById("clientList").spellcheck = false
+    document.getElementById("clientList").style.color = "black"
+});
+
+document.getElementById("enableSuperStrength").addEventListener("click", () =>{
+    document.getElementById("editClientList").style.display = "block"
+});
+*/
