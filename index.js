@@ -145,6 +145,11 @@ app.get('/api/tours', (req, res) => {
     res.send(db.tours)
 })
 
+app.get('/api/tours/:date', (req, res) => {
+    const date = req.params.date
+    res.send(db.tours.filter(t => t.date === date))
+})
+
 app.get('/api/drivers', (req, res) => {
     res.send(db.drivers)
 })

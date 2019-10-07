@@ -10,7 +10,6 @@
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
 
-		<link rel="stylesheet" href="css/bootstrap.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/monokai.css">
@@ -25,12 +24,13 @@
 		</script>
 
 		<style>
-
 			p{
 				font-family: Verdana,Geneva,sans-serif;
     			font-weight: bold;
 			}
-
+			code{
+				border: 9px solid #fff;
+			}
 			#timer {
 			  position: relative;
 			  width: 100%;
@@ -46,6 +46,10 @@
 				background: #272822;
 				padding: 15px;
 			}
+			input[type="checkbox"]{
+				width: 3em;
+    			height: 3em;	
+			}
 			#superVisionForm{
 				margin-top: 20px;
 				border: 9px solid #fff;
@@ -58,7 +62,24 @@
 				background: #272822;
 				padding: 15px;
 			}
-			 #heroImg{
+			#superStrengthFormTemplate{
+				margin-top: 20px;
+				border: 9px solid #fff;
+				background: #272822;
+				padding: 15px;
+			}
+			#superStrengthFormGrid{
+				display: grid;
+			 	grid-template-columns: 1fr 1fr;	
+			}
+			#startTour{	
+				width: 100%;
+				background: #4CAF50;
+				width: 100%;
+				font-size: 1em;
+				color: #fff;
+			}
+			#heroImg{
 				 position: absolute;
 				 width: 316px;
 				 margin-top: -235px;
@@ -102,7 +123,7 @@
 				width: 92em;
 				padding: 3em;
 				margin-left: -46em;
-				margin-top: -2em;
+				margin-top: -1em;
 				position: absolute;
 				z-index: -1;
 			 }
@@ -158,8 +179,8 @@
 					data-expected-duration="1m" 
 					data-background-color="#333233"
 				>
-					<div class="stripe-green"></div>
-					<p class="stripe-green-text">Hi, I like to develop software</p>
+					<div class="stripe-blue"></div>
+					<p class="stripe-blue-text">Hi, I like to develop software</p>
 				</section>
 				<section 
 					data-expected-duration="30s" 
@@ -209,7 +230,7 @@
 					data-background-color="#333233"
 				>
 					<div class="stripe-blue"></div>
-					<p class="stripe-blue-text">Small gains => big gain</p>
+					<p class="stripe-blue-text">Small gains <span>&rarr;</span> big gain</p>
 				</section>
 				<section
 					data-expected-duration="5m"
@@ -222,7 +243,8 @@
 					data-expected-duration="10s" 
 					data-background-color="#333233"
 				>
-					Surprise, this is the demo
+					<div class="stripe-red"></div>
+					<p class="stripe-red-text">Surprise, this is the demo</p>
 				</section>
 				<section
 					data-expected-duration="5m"
@@ -266,13 +288,8 @@
 					data-expected-duration="5m"
 					data-background-image="img/flash_back.jpg"
 				>
-					
-					<p><label for="basic-url">Load articles on truck</label></p>
-					
+					<p><label for="basic-url">Load articles on truck</label></p>	
 					<div id="superSpeedForm">
-						<ul id="articlesList">
-						</ul>
-						<a style="margin-left: 30px" class="btn btn-primary btn-lg" role="button">Continue</a>
 					</div>
 				</section>
 				<section
@@ -284,33 +301,13 @@
 					data-expected-duration="5m"
 					data-background-image="img/superman_back.jpg"
 				>
-					Super-vision
-					<a id="enableSuperVision" style="margin-left: 30px" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Enable superpowers</a>
+					Driver tour
 					<div id="superVisionForm">
-						<ul class="list-group">
-						  <li class="list-group-item">
-							<div class="btn-group" role="group" aria-label="...">
-							  <button type="button" class="btn btn-default">Seller:</button>
-							  <button type="button" class="btn btn-default">Dan</button>
-							</div>
-							<div class="btn-group" role="group" aria-label="...">
-							  <button type="button" class="btn btn-default">Client list:</button>
-							  <button type="button" class="btn btn-default">Alice, Bob, Carol</button>
-							</div>
-						  </li>
-						</ul>
-						<ul id="superVisionMetadata" style="display: none" class="list-group">
-						  <li class="list-group-item">
-							<div class="btn-group" role="group" aria-label="...">
-							  <button type="button" class="btn btn-default">Present on last store report:</button>
-							  <button type="button" class="btn btn-default">True</button>
-							</div>
-							<div class="btn-group" role="group" aria-label="...">
-							  <button type="button" class="btn btn-default">Has apply discount permissions:</button>
-							  <button type="button" class="btn btn-default">False</button>
-							</div>
-						  </li>
-						</ul>
+						<div>Tours</div>
+						<div>Alice Restaurant</div>
+						<div>Status - Finished</div>
+						<div></div>
+						<div>Bob's Burguer</div>
 					</div>
 				</section>
 				<section
@@ -319,10 +316,12 @@
 				>
 					Super-vision
 					<pre><code data-trim>
-					await DEV.getSalesUntilDate("2019-02-02")
-					  .then(cs => cs.map( c => c.articles ))
-					  .then(as => as.flat())
-					  .then(as => as.map( as => as.price ))
+					//All potatoes sold on 2020-02-02
+					await HERO.getTours("2020-02-02")
+					  .then(ts => ts.map( t => t.deliveries ))
+					  .then(ds => ds.flat())
+					  .then(ds => ds.filter(d => d.article === "Potatoes" ))
+					  .then(ps => ps.map(p => p.quantity))
 					  .then(ps => ps.reduce( (a, b) => a + b, 0 ) )
 					</code></pre>
 				</section>
@@ -359,7 +358,8 @@
 				>
 					Super-strength
 					<pre><code data-trim>
-						DEV.addSaleToClient(clientName, article, price)
+						//Set ANY delivery to completed
+						HERO.setDeliveryCompleted(id)
 				    </code></pre>
 				
 				</section>

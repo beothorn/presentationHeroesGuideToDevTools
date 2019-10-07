@@ -3,7 +3,7 @@
 let toursId = 1
 
 let allLoaded = () => {
-    for(article of Array.from(document.querySelectorAll("#articlesList li input"))) {
+    for(article of Array.from(document.querySelectorAll("#superStrengthFormGrid input"))) {
         if(!article.checked) return false
     }
     return true
@@ -16,8 +16,8 @@ let loadArticles = (id) => {
     let formElement = document.getElementById("superSpeedForm")
     formElement.innerHTML = ""
 
-    let articlesList = document.createElement("ul")
-    articlesList.id = "articlesList"
+    let articlesList = document.createElement("div")
+    articlesList.id = "superStrengthFormGrid"
     formElement.appendChild(articlesList)
 
     let startTour = document.createElement("button")
@@ -31,10 +31,11 @@ let loadArticles = (id) => {
             let loaded = d.loaded
             let deliveryId = d.id
 
-            let newEntry = document.createElement("li")
+            let newEntry = document.createElement("div")
 
-            let articleElement = document.createElement("span")
+            let articleElement = document.createElement("div")
             articleElement.appendChild(document.createTextNode(article))
+
 
             let loadedElement = document.createElement("input")
             loadedElement.type = "checkbox"
@@ -45,9 +46,11 @@ let loadArticles = (id) => {
                 fetch(`/api/deliveries/${deliveryId}/loaded/${el.target.checked}`, { method : "PUT" }).then(refreshButton)
             }
 
-            newEntry.appendChild(articleElement)
-            newEntry.appendChild(loadedElement)
-            articlesList.appendChild(newEntry)
+            let checkboxColumn = document.createElement("div")
+            checkboxColumn.appendChild(loadedElement)
+
+            articlesList.appendChild(articleElement)
+            articlesList.appendChild(checkboxColumn)
         }
         refreshButton()
     })

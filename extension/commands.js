@@ -2,6 +2,7 @@ if(document.body.dataset['presentation']){
     console.log("Extension loaded")
     var HERO = {
         hello: () => console.log("It works!!"),
+        getTours: (date) => fetch("/api/tours/"+date).then(r => r.json()),
         deliveries: (tourId) =>{
             console.table(
                 backendState.find(c => c.client == clientName).articles
@@ -29,31 +30,21 @@ if(document.body.dataset['presentation']){
     }
 
     let loadAllButton = document.createElement("button")
+    loadAllButton.style.cssText = "width: 100%;background: #F00;width: 100%;font-size: 1em;color: #fff;"
     loadAllButton.appendChild(document.createTextNode("Load All"))
 
+
     loadAllButton.addEventListener("click", () =>{
-        for(article of Array.from(document.querySelectorAll("#articlesList li input"))) {
+        for(article of Array.from(document.querySelectorAll("#superStrengthFormGrid input"))) {
             if(!article.checked) article.click()
         }
     })
 
-    document.getElementById("superSpeedForm").appendChild(loadAllButton)
+    /*
+    Because our slides are not dynamic, we can just inject our load all button on our form.
+    On your app you will probably want to check out the Mutation observer api, so you can
+    inject your button only when the form is created
+    */
+    let superSpeedForm = document.getElementById("superSpeedForm")
+    superSpeedForm.insertBefore(loadAllButton, superSpeedForm.firstChild)
 }
-
-
-
-/*
-document.getElementById("enableSuperVision").addEventListener("click", () =>{
-    document.getElementById("superVisionMetadata").style.display = "block"
-});
-
-document.getElementById("editClientList").addEventListener("click", () =>{
-    document.getElementById("clientList").contentEditable = true
-    document.getElementById("clientList").spellcheck = false
-    document.getElementById("clientList").style.color = "black"
-});
-
-document.getElementById("enableSuperStrength").addEventListener("click", () =>{
-    document.getElementById("editClientList").style.display = "block"
-});
-*/
