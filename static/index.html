@@ -79,6 +79,26 @@
 				font-size: 1em;
 				color: #fff;
 			}
+
+			#superVisionFormGrid{
+				display: grid;
+			 	grid-template-columns: 1fr 1fr;	
+			}
+			.startLoadEnabled{	
+				width: 100%;
+				background: #4CAF50;
+				width: 100%;
+				font-size: 1em;
+				color: #fff;
+			}
+			.startLoadDisabled{	
+				width: 100%;
+				background: rgb(138, 138, 138);
+				width: 100%;
+				font-size: 1em;
+				color: #fff;
+			}
+
 			#heroImg{
 				 position: absolute;
 				 width: 316px;
@@ -301,13 +321,10 @@
 					data-expected-duration="5m"
 					data-background-image="img/superman_back.jpg"
 				>
-					Driver tour
+					Driver tours
 					<div id="superVisionForm">
-						<div>Tours</div>
-						<div>Alice Restaurant</div>
-						<div>Status - Finished</div>
-						<div></div>
-						<div>Bob's Burguer</div>
+						<div id="superVisionFormGrid">
+						</div>
 					</div>
 				</section>
 				<section
@@ -359,7 +376,7 @@
 					Super-strength
 					<pre><code data-trim>
 						//Set ANY delivery to completed
-						HERO.setDeliveryCompleted(id)
+						HERO.setTourToFinished(id)
 				    </code></pre>
 				
 				</section>

@@ -36,6 +36,8 @@ const db = {
             "finished": false,
             "invoiced": false,
             "date": "2020-02-02",
+            "lastSync": "2020-02-02_10-50",
+            "appVersion": "4.2",
             "deliveries":[
                 {
                     "id": 10,
@@ -64,23 +66,25 @@ const db = {
             "id": 2,
             "driver": "Dragan",
             "client": "Bob's Burguer",
-            "finished": false,
-            "invoiced": false,
+            "finished": true,
+            "invoiced": true,
             "date": "2020-02-02",
+            "lastSync": "2020-02-02_11-20",
+            "appVersion": "4.2",
             "deliveries":[
                 {
                     "id": 13,
                     "article": "Burguer box",
                     "quantity": 10,
-                    "loaded": false,
-                    "delivered": false,
+                    "loaded": true,
+                    "delivered": true,
                 },
                 {
                     "id": 14,
                     "article": "Buns",
                     "quantity": 80,
-                    "loaded": false,
-                    "delivered": false,
+                    "loaded": true,
+                    "delivered": true,
                 },
             ]
         },
@@ -91,6 +95,8 @@ const db = {
             "finished": false,
             "invoiced": false,
             "date": "2020-02-02",
+            "lastSync": "2020-02-02_9-30",
+            "appVersion": "4.1",
             "deliveries":[
                 {
                     "id": 15,
@@ -154,6 +160,18 @@ app.get('/api/drivers', (req, res) => {
     res.send(db.drivers)
 })
 
+app.get('/api/drivers/:driverName/tours', (req, res) => {
+    const driverName = req.params.driverName
+    const toursDorDriver =  db.tours.filter(t => t.driver === driverName)
+    res.send(toursDorDriver)
+})
+
+app.get('/api/tour/:id', (req, res) => {
+    const tourId = parseInt(req.params.id)
+    const tour = db.tours.find(t => t.id === tourId)
+    res.send(tour)
+})
+
 app.get('/api/tours/:id/deliveries', (req, res) => {
     const tourId = parseInt(req.params.id)
     const tour = db.tours.find(t => t.id === tourId)
@@ -163,9 +181,9 @@ app.get('/api/tours/:id/deliveries', (req, res) => {
 app.get('/api/tours/:id/deliveries/allLoaded', (req, res) => {
     const tourId = parseInt(req.params.id)
     let allLoaded = true
-    for(t of db.tours){
+    for(let t of db.tours){
         if(t.id === tourId){
-            for(d of t.deliveries){
+            for(let d of t.deliveries){
                 if(!d.loaded) allLoaded = false
             }
         }
@@ -174,8 +192,8 @@ app.get('/api/tours/:id/deliveries/allLoaded', (req, res) => {
 })
 
 const getDelivery = (id) => {
-    for(t of db.tours){
-        for(d of t.deliveries){
+    for(let t of db.tours){
+        for(let d of t.deliveries){
             if(d.id === id){
                 return d
             }
@@ -186,7 +204,21 @@ const getDelivery = (id) => {
 app.put('/api/deliveries/:id/loaded/:value', (req, res) => {
     const deliveryId = parseInt(req.params.id)
     const delivery = getDelivery(deliveryId)
-    delivery.loaded = req.params.value == "true"
+    delivery.loaded = req.params.value === "true"
+    res.status(200).end()
+})
+
+//Obvivously on a real application this endpoint requires authentication
+// and privileges
+app.put('/api/tour/:id', (req, res) => {
+    const tourId = parseInt(req.params.id)
+    let tourOverride = req.body
+    for(let i=0; i < db.tours.length; i++){
+        if(db.tours[i].id === tourId){
+            db.tours[i] = tourOverride
+            return
+        }
+    }
     res.status(200).end()
 })
 

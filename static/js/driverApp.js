@@ -1,17 +1,38 @@
-//<a id="superSpeedFill" style="margin-left: 30px" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Fill Form</a>
+let loadToursForDriver = (driverName) => {
+    let formElement = document.getElementById("superVisionFormGrid")
+    formElement.innerHTML = ""
 
-let toursId = 1
-
-let allLoaded = () => {
-    for(article of Array.from(document.querySelectorAll("#superStrengthFormGrid input"))) {
-        if(!article.checked) return false
-    }
-    return true
+    fetch(`/api/drivers/${driverName}/tours`).then(r => r.json()).then( tours => {
+        for(let t of tours){
+            let clientNameElement = document.createElement("div")
+            clientNameElement.appendChild(document.createTextNode(t.client))
+            formElement.appendChild(clientNameElement)
+            
+            let clientTourLoadStart = document.createElement("button")
+            let tourFinished = t.finished
+            if(tourFinished){
+                clientTourLoadStart.appendChild(document.createTextNode("Finished"))
+                clientTourLoadStart.enabled = false
+                clientTourLoadStart.classList.add("startLoadDisabled")
+            }else{
+                clientTourLoadStart.appendChild(document.createTextNode("Start load"))
+                clientTourLoadStart.enabled = true
+                clientTourLoadStart.classList.add("startLoadEnabled")
+            }
+            formElement.appendChild(clientTourLoadStart)
+        }
+    })
 }
 
-let refreshButton = () => (document.getElementById("startTour").style.display = allLoaded() ? "block" : "none")
+let loadArticles = (toursId) => {
+    let allLoaded = () => {
+        for(article of Array.from(document.querySelectorAll("#superStrengthFormGrid input"))) {
+            if(!article.checked) return false
+        }
+        return true
+    }
 
-let loadArticles = (id) => {
+    let refreshButton = () => (document.getElementById("startTour").style.display = allLoaded() ? "block" : "none")
 
     let formElement = document.getElementById("superSpeedForm")
     formElement.innerHTML = ""
@@ -39,11 +60,13 @@ let loadArticles = (id) => {
 
             let loadedElement = document.createElement("input")
             loadedElement.type = "checkbox"
-            loadedElement.classList.add("custom-control-input")
             loadedElement.checked = loaded
 
             loadedElement.onchange = (el) =>{
-                fetch(`/api/deliveries/${deliveryId}/loaded/${el.target.checked}`, { method : "PUT" }).then(refreshButton)
+                fetch(`/api/deliveries/${deliveryId}/loaded/${el.target.checked}`, { method : "PUT" }).then(() => {
+                    refreshButton()
+                    loadToursForDriver("Dragan")
+                })
             }
 
             let checkboxColumn = document.createElement("div")
@@ -58,4 +81,7 @@ let loadArticles = (id) => {
     formElement.appendChild(startTour)
 }
 
+
+
 loadArticles(1)
+loadToursForDriver("Dragan")
