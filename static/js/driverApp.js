@@ -29,7 +29,7 @@ let loadToursForDriver = (driverName, gridId) => {
                 clientTourLoadStart.enabled = false
                 clientTourLoadStart.classList.add("startLoadDisabled")
             }else{
-                clientTourLoadStart.appendChild(document.createTextNode("Start load"))
+                clientTourLoadStart.appendChild(document.createTextNode("Start tour"))
                 clientTourLoadStart.enabled = true
                 clientTourLoadStart.classList.add("startLoadEnabled")
             }

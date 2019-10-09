@@ -124,33 +124,84 @@ There is also an extension that is injecting code and adding extra elements to o
 
 ## Super-speed
 
-You need to be able to just start calling endpoints.
+The first thing we want is speed. We want to go directly to the heart of the issue and not waste our time on procedures that may make sense on real use cases, but not for debugging our app.
 
-Learn the fetch api.
-
-Use the mutation observer to inject buttons that fills boilerplate.
-
-Jump from screen to screen.
+For this we need shortcuts and autocompletions that gets everything that is not interesting out of the way.
 
 ## Super-speed demo
 
+This is a general idea of one thing that our app does, give a list of all articles that need to be loaded to be delivered by a driver.
+
+We usually don't do this on production, but one common strategy that we have is to duplicate the state of a tour from production to 
+our testing environment.
+
+To start a tour the driver needs to scan all articles as they are loaded. On this example we have only a few articles, but on a real tour
+we can have a lot more. So just we don't waste time here if this is not related to our bug, we can load all articles at once.
+
+Notice that this button is not present on the actual app. It was injected by our extension.
+
+Let's click on it and see what happens.
+
 ## Super-vision
 
-You need to be able to see what is happening on production.
+When we are investigating an issue we need to see more than what is usually shown to the client. We need to be able to see tecnical information, we need to see historical information and we need to see things that a regular user has no authorization to see.
 
-Add endpoints that allow you to query basic stuff.
+## Super-vision
 
-Add views that are not present on the regular version of the app using extensions.
+Here on this form you see something similar to what a driver sees when they finish loading and is ready to start a tour. 
 
-Browse information integrated with the very ui user uses to input it.
+The driver have a list of tours to take. After they deliver the articles and get the client signature the tour is done.
+
+After each tour we generate a delivery summary and send it by email to the customer and to the store.
+
+After all tours are finished we send a summary of all tours to the store.
+
+We try to sync the state of the tour as much as possible, but it is expected that the driver will be offline for big amounts of time.
+
+Then we can have this button here. This is also injected by the extension.
+
+If we have a stuck device the last sync and the app version for a tour can give us a starting point on where to start looking.
+
+Again, we could look at the logs, database, but it is really convenient to already have this information in the context of the app.
+
+Also, for this, you will need to create the endpoints obvously with some kind of authentication
+
+Also there is another way for us to have this supervision.
+
+## Super-vision
+
+With javascript it is easy to map reduce basic json responses.
+
+The extension is injecting a global object called HERO with useful functions.
+
+We can take advantage of this using Devtools. 
+[Explain example]
+
+We also get a log of all network calls on the network tab.
+Devtools can also output more than text
+
+## Super-vision
+
+So here we can output all deliveris from tour with id 1 as a table.
+
+We can also draw stuff on devtools using css and base64 encoded images.
+
+We actually used this when debugging some issues we were having with client signatures on our app.
 
 ## Super-strength
 
 Sometimes, you need to be able to change stuff on production, even if it is dangerous.
 Make yourself able to do this without burocracy.
 
+The extension injects here a button to finish all tours.
+
+## Super-strength
+
+
 ## Just another tool on your toolbelt
 
 ## Share your power
 
-Extensions are code. Use version control, make them available in your internal repo.
+The core idea is to collect all the knowledge acquired about all those patterns, encode them as code and make them available on the UI.
+
+And put the extension on some version control. This way the knowledge can be shared and collectivelly improved.
