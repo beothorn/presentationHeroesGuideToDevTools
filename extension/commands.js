@@ -2,6 +2,7 @@ if(document.body.dataset['presentation']){
     const superButtonsCss = "background: #f00;width: 100%;font-size: 1em;color: #fff;margin-top: 22px;"
 
     var HERO = {
+        resetDb: () => fetch("/api/resetDb", { method: "PUT" }),
         getTours: (date) => fetch("/api/tours/"+date).then(r => r.json()),
         getTour: (id) => fetch("/api/tour/"+id).then(r => r.json()),
         getToursForDriver: (driversName) => fetch(`/api/drivers/${driversName}/tours`).then(r => r.json()),

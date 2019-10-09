@@ -13,15 +13,21 @@ Listen to my story and discover how you can add special debugging features for y
 ## Goal time
 30 minutes
 
+## Title
+
+This presentation is available at the url on this QR code. The QR code is also in the slide at the end of this presentation.
+
 ## Who am I?
 
-I am a developer, and I like to code. The feeling of telling a computer to calculate something that you could not possibly do yourself and having a response is awesome.
+I am a developer, and I like to create.
 
 I am currently a fullstack developer in the app used by drivers delivering goods for the Metro Cash and Carry.
 
 The DriverApp lives inside the ecossystem of microservices inside Metronom and Metro, and is the bridge between deliveries and the rest of our system.
 
-It is a ReactApp packaged with Cordova, with a backend using Spring Boot, Java, Scala and Cassandra.
+The actual app is a ReactApp packaged with Cordova, with a backend using Spring Boot, Java, Scala and Cassandra.
+
+The app is used by the drivers to load the articles to be delivered in the truck, controlling the deposits and returns, getting the signature from the clients, generating delivery summaries among other stuff.
 
 ## Everything is fine when everything is fine
 
@@ -52,9 +58,9 @@ Access to the db, logs (especially logs) , remote debugging, directly connecting
 
 All those are really usefull, but I want to show you a tool that is usually not used, but can be a source of great insights and even, who knows, even save the day.
 
-## As you fail you learn
+## Things are in order
 
-But first, I want to talk about how to investigate issues on production code.
+I want to talk about how to investigate issues on production code.
 
 Every issue is diferent, but the starting point is doing a sanity check.
 
@@ -64,6 +70,8 @@ You can reach a big chunck of the errors just doing basic checks.
 
 You can learn things to check by investigating new errors.
 
+## As you fail you learn
+
 For example, on driver app the first thing to check is what deliveries where already synced and at what time. Seems simple but this eliminates a lot of problems that we would not be able to see if we went in another direction.
 
 Usually the starting point is calling the rest interface.
@@ -72,12 +80,26 @@ I used to use rest clients to look at this information.
 But they are not powerful enough. It is complicated to filter information,
 no mechanism to do complex stuff as reusing data from one query to the other.
 
-No output but jsons.
+No output but raw jsons.
 
 A lot of copying, pasting and text searching
 
 You need to fail a lot. Learn what are the starting points
 to investigate issues and then create the tools for you to easily access them.
+
+## Obvious is powerful
+
+As you investigate new bugs and you use your own system you end up learning all those patterns.
+
+Then those patterns become obvious. And they usually are, but we forget all the things that we eliminated while learning those patterns.
+
+But what is obvous for you is not always obvious for others, and you need a way to give form to those patterns, make them more discoverable and aproachable.
+
+One way to do this is documentation. Another way is code.
+
+## Small gains → big gain
+
+Each of those obvious patterns don't add so much value by themselves, but when combined they end up giving a huge boost on speed.
 
 
 ## A familiar tool that is more powerful than you thought

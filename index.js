@@ -18,131 +18,142 @@ app.use(express.static('static'));
 const bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
 
-const db = {
-    "clients":[
-        {"name": "Alice Restaurant"},
-        {"name": "Bob's Burguer"},
-        {"name": "Carol Soups"},
-        {"name": "Betty's"},
-    ],
-    "drivers":[
-        {"name": "Dragan"},
-        {"name": "Edna"},
-    ],
-    "tours":[
-        {
-            "id": 1,
-            "driver": "Dragan",
-            "client": "Alice Restaurant",
-            "finished": false,
-            "invoiced": false,
-            "date": "2020-02-02",
-            "lastSync": "2020-02-02_10-50",
-            "appVersion": "4.2",
-            "deliveries":[
-                {
-                    "id": 10,
-                    "article": "Potatoes",
-                    "quantity": 1,
-                    "loaded": false,
-                    "delivered": false,
-                },
-                {
-                    "id": 11,
-                    "article": "Tomatoes",
-                    "quantity": 2,
-                    "loaded": false,
-                    "delivered": false,
-                },
-                {
-                    "id": 12,
-                    "article": "Salt",
-                    "quantity": 1,
-                    "loaded": false,
-                    "delivered": false,
-                },
-            ]
-        },
-        {
-            "id": 2,
-            "driver": "Dragan",
-            "client": "Bob's Burguer",
-            "finished": true,
-            "invoiced": true,
-            "date": "2020-02-02",
-            "lastSync": "2020-02-02_11-20",
-            "appVersion": "4.2",
-            "deliveries":[
-                {
-                    "id": 13,
-                    "article": "Burguer box",
-                    "quantity": 10,
-                    "loaded": true,
-                    "delivered": true,
-                },
-                {
-                    "id": 14,
-                    "article": "Buns",
-                    "quantity": 80,
-                    "loaded": true,
-                    "delivered": true,
-                },
-            ]
-        },
-        {
-            "id": 3,
-            "driver": "Edna",
-            "client": "Betty's",
-            "finished": false,
-            "invoiced": false,
-            "date": "2020-02-02",
-            "lastSync": "2020-02-02_9-30",
-            "appVersion": "4.1",
-            "deliveries":[
-                {
-                    "id": 15,
-                    "article": "Potatoes",
-                    "quantity": 8,
-                    "loaded": false,
-                    "delivered": false,
-                },
-                {
-                    "id": 16,
-                    "article": "Carrots",
-                    "quantity": 6,
-                    "loaded": false,
-                    "delivered": false,
-                }
-            ]
-        },
-        {
-            "id": 4,
-            "driver": "Edna",
-            "client": "Carol Soups",
-            "finished": false,
-            "invoiced": false,
-            "date": "2020-02-03",
-            "deliveries":[
-                {
-                    "id": 17,
-                    "article": "Potatoes",
-                    "quantity": 3,
-                    "loaded": false,
-                    "delivered": false,
-                },
-                {
-                    "id": 18,
-                    "article": "Oil",
-                    "quantity": 2,
-                    "loaded": false,
-                    "delivered": false,
-                }
-            ]
-        },
-    ]
+let db = {}
+
+let resetDb = () => {
+    db = {
+        "clients":[
+            {"name": "Alice Restaurant"},
+            {"name": "Bob's Burguer"},
+            {"name": "Carol Soups"},
+            {"name": "Betty's"},
+        ],
+        "drivers":[
+            {"name": "Dragan"},
+            {"name": "Edna"},
+        ],
+        "tours":[
+            {
+                "id": 1,
+                "driver": "Dragan",
+                "client": "Alice Restaurant",
+                "finished": false,
+                "invoiced": false,
+                "date": "2020-02-02",
+                "lastSync": "2020-02-02_10-50",
+                "appVersion": "4.2",
+                "deliveries":[
+                    {
+                        "id": 10,
+                        "article": "Potatoes",
+                        "quantity": 1,
+                        "loaded": false,
+                        "delivered": false,
+                    },
+                    {
+                        "id": 11,
+                        "article": "Tomatoes",
+                        "quantity": 2,
+                        "loaded": false,
+                        "delivered": false,
+                    },
+                    {
+                        "id": 12,
+                        "article": "Salt",
+                        "quantity": 1,
+                        "loaded": false,
+                        "delivered": false,
+                    },
+                ]
+            },
+            {
+                "id": 2,
+                "driver": "Dragan",
+                "client": "Bob's Burguer",
+                "finished": true,
+                "invoiced": true,
+                "date": "2020-02-02",
+                "lastSync": "2020-02-02_11-20",
+                "appVersion": "4.2",
+                "deliveries":[
+                    {
+                        "id": 13,
+                        "article": "Burguer box",
+                        "quantity": 10,
+                        "loaded": true,
+                        "delivered": true,
+                    },
+                    {
+                        "id": 14,
+                        "article": "Buns",
+                        "quantity": 80,
+                        "loaded": true,
+                        "delivered": true,
+                    },
+                ]
+            },
+            {
+                "id": 3,
+                "driver": "Edna",
+                "client": "Betty's",
+                "finished": false,
+                "invoiced": false,
+                "date": "2020-02-02",
+                "lastSync": "2020-02-02_9-30",
+                "appVersion": "4.1",
+                "deliveries":[
+                    {
+                        "id": 15,
+                        "article": "Potatoes",
+                        "quantity": 8,
+                        "loaded": false,
+                        "delivered": false,
+                    },
+                    {
+                        "id": 16,
+                        "article": "Carrots",
+                        "quantity": 6,
+                        "loaded": false,
+                        "delivered": false,
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "driver": "Edna",
+                "client": "Carol Soups",
+                "finished": false,
+                "invoiced": false,
+                "date": "2020-02-03",
+                "deliveries":[
+                    {
+                        "id": 17,
+                        "article": "Potatoes",
+                        "quantity": 3,
+                        "loaded": false,
+                        "delivered": false,
+                    },
+                    {
+                        "id": 18,
+                        "article": "Oil",
+                        "quantity": 2,
+                        "loaded": false,
+                        "delivered": false,
+                    }
+                ]
+            },
+        ]
+    }
 }
 
+resetDb()
+
 const PORT = 3000
+
+app.put('/api/resetDb', (req, res) => {
+    resetDb()
+    res.status(200).end()
+})
 
 app.get('/api/clients', (req, res) => {
     res.send(db.clients)
