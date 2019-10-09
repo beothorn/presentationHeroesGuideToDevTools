@@ -68,10 +68,11 @@
 				background: #272822;
 				padding: 15px;
 			}
-			#superStrengthFormGrid{
+			#superSpeedFormGrid{
 				display: grid;
 			 	grid-template-columns: 1fr 1fr;	
 			}
+			
 			#startTour{	
 				width: 100%;
 				background: #4CAF50;
@@ -81,6 +82,10 @@
 			}
 
 			#superVisionFormGrid{
+				display: grid;
+			 	grid-template-columns: 1fr 1fr;	
+			}
+			#superStrengthFormGrid{
 				display: grid;
 			 	grid-template-columns: 1fr 1fr;	
 			}
@@ -98,7 +103,10 @@
 				font-size: 1em;
 				color: #fff;
 			}
-
+			.gridTitle{
+				border-bottom: 4px solid #fff;
+    			margin-bottom: 5px;
+			}
 			#heroImg{
 				 position: absolute;
 				 width: 316px;
@@ -176,6 +184,10 @@
 			 }
 			 .stripe-gold-text{
 				color:#272822;
+			 }
+			 .finalLinks{
+				 display: block;
+				 font-size: 0.6em;
 			 }
 		</style>
 	</head>
@@ -344,6 +356,17 @@
 				</section>
 				<section
 					data-expected-duration="5m"
+					data-background-image="img/superman_back.jpg"
+				>
+					Super-vision
+					<pre><code data-trim>
+					//Not only text
+					HERO.deliveries(1)
+					HERO.drawSomething()
+					</code></pre>
+				</section>
+				<section
+					data-expected-duration="5m"
 					data-background-image="img/hulk.jpg"
 				>
 				</section>
@@ -351,21 +374,10 @@
 					data-expected-duration="5m"
 					data-background-image="img/hulk_back.jpg"
 				>
-					Super-strength <a id="enableSuperStrength" style="margin-left: 30px" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Enable superpowers</a>
+					Super-strength
 					<div id="superStrengthForm">
-						<ul class="list-group">
-						  <li class="list-group-item">
-							<div class="btn-group" role="group" aria-label="...">
-							  <button type="button" class="btn btn-default">Seller:</button>
-							  <button type="button" class="btn btn-default">Dan</button>
-							</div>
-							<div class="btn-group" role="group" aria-label="...">
-							  <button type="button" class="btn btn-default">Client list:</button>
-							  <button id="clientList" type="button" style="color: gray" class="btn btn-default">Alice, Bob, Carol</button>
-							  <button style="display: none" id="editClientList" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Edit List</button>
-							</div>
-						  </li>
-						</ul>
+						<div id="superStrengthFormGrid">
+						</div>
 					</div>
 				</section>
 				</section>
@@ -375,10 +387,9 @@
 				>
 					Super-strength
 					<pre><code data-trim>
-						//Set ANY delivery to completed
+						//Set any delivery to completed
 						HERO.setTourToFinished(id)
 				    </code></pre>
-				
 				</section>
 				<section
 					data-expected-duration="2m"
@@ -397,6 +408,7 @@
 					data-background-color="#333233"
 				>
 					<img width="600px" src="img/sourcecode.png" />
+					<span class="finalLinks">github.com/beothorn/presentationHeroesGuideToDevTools</span>
 				</section>
 			</div>
 		</div>

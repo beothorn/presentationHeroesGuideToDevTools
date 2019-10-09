@@ -86,12 +86,16 @@ But I want to show you an unlikely help.
 I has the advantage of being a powerfull REPL, with lots of powerful features,
 flexible and being the very thing your users have to use your system.
 
-## Surprise, we're in a browser
+## Surprise, this is the demo
 
 For example, here we are, right now inside a browser. And I'll demonstrate to you
 that with some preparation, it can give you an edge when you need to investigate that nasty bug.
 
-First let me show you that chrome can show you
+There is a toy system running in the background with a persisted state. 
+
+The forms on the slides are really calling the server and making changes.
+
+There is also an extension that is injecting code and adding extra elements to our slides.
 
 ## Let's give ourselves superpowers
 

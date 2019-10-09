@@ -1,8 +1,22 @@
-let loadToursForDriver = (driverName) => {
-    let formElement = document.getElementById("superVisionFormGrid")
-    formElement.innerHTML = ""
+let loadToursForDriver = (driverName, gridId) => {
+    
 
     fetch(`/api/drivers/${driverName}/tours`).then(r => r.json()).then( tours => {
+        let formElement = document.getElementById(gridId)
+        formElement.innerHTML = ""
+        let driverNameElementCol1 = document.createElement("div")
+        driverNameElementCol1.appendChild(document.createTextNode("Tours for driver:"))
+        driverNameElementCol1.classList.add("gridTitle")
+        
+        formElement.appendChild(driverNameElementCol1)
+
+
+        let driverNameElementCol2 = document.createElement("div")
+        driverNameElementCol2.appendChild(document.createTextNode(driverName))
+        driverNameElementCol2.classList.add("gridTitle")
+        driverNameElementCol2.classList.add("driversName")
+        formElement.appendChild(driverNameElementCol2)
+
         for(let t of tours){
             let clientNameElement = document.createElement("div")
             clientNameElement.appendChild(document.createTextNode(t.client))
@@ -26,7 +40,7 @@ let loadToursForDriver = (driverName) => {
 
 let loadArticles = (toursId) => {
     let allLoaded = () => {
-        for(article of Array.from(document.querySelectorAll("#superStrengthFormGrid input"))) {
+        for(article of Array.from(document.querySelectorAll("#superSpeedFormGrid input"))) {
             if(!article.checked) return false
         }
         return true
@@ -38,7 +52,7 @@ let loadArticles = (toursId) => {
     formElement.innerHTML = ""
 
     let articlesList = document.createElement("div")
-    articlesList.id = "superStrengthFormGrid"
+    articlesList.id = "superSpeedFormGrid"
     formElement.appendChild(articlesList)
 
     let startTour = document.createElement("button")
@@ -84,4 +98,5 @@ let loadArticles = (toursId) => {
 
 
 loadArticles(1)
-loadToursForDriver("Dragan")
+loadToursForDriver("Dragan", "superVisionFormGrid")
+loadToursForDriver("Edna", "superStrengthFormGrid")

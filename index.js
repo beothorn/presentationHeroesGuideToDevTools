@@ -23,6 +23,7 @@ const db = {
         {"name": "Alice Restaurant"},
         {"name": "Bob's Burguer"},
         {"name": "Carol Soups"},
+        {"name": "Betty's"},
     ],
     "drivers":[
         {"name": "Dragan"},
@@ -91,7 +92,7 @@ const db = {
         {
             "id": 3,
             "driver": "Edna",
-            "client": "Carol Soups",
+            "client": "Betty's",
             "finished": false,
             "invoiced": false,
             "date": "2020-02-02",
@@ -219,6 +220,12 @@ app.put('/api/tour/:id', (req, res) => {
             return
         }
     }
+    res.status(200).end()
+})
+
+app.put('/api/drivers/:driverName/finishTours', (req, res) => {
+    const driverName = req.params.driverName
+    db.tours.filter( t => t.driver === driverName ).forEach(t => t.finished = true)
     res.status(200).end()
 })
 
