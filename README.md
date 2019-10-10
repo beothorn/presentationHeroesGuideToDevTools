@@ -6,6 +6,7 @@ Here you can find a toy system, slides, the script for the presentation and the 
 
 To start the presentation run
 ```
+npm install
 node index.js
 ```
 Then open localhost:3000
