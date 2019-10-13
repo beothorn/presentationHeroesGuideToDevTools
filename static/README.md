@@ -110,6 +110,9 @@ flexible and being the very thing your users have to use your system.
 
 ## Surprise, this is the demo
 
+explain driverapp, the flow and the reports
+
+
 For example, here we are, right now inside a browser. And I'll demonstrate to you
 that with some preparation, it can give you an edge when you need to investigate that nasty bug.
 
