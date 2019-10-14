@@ -27,6 +27,10 @@
 			p{
 				font-family: Verdana,Geneva,sans-serif;
     			font-weight: bold;
+				font-size: 0.8em;
+			}
+			.navigate-down{
+				display: none;
 			}
 			code{
 				border: 9px solid #fff;
@@ -125,9 +129,14 @@
 
 			 #metro-logo-cell{
 			 	grid-column-start: 1; 
-    			grid-column-end: 4; 
+    			grid-column-end: 3; 
 
     			justify-self: start;
+			 }
+
+			 #codetalks-logo-cell{
+				width: 111px;
+    			justify-self: end;
 			 }
 
 			 #qrcode-cell{
@@ -151,14 +160,14 @@
 				width: 92em;
 				padding: 3em;
 				margin-left: -46em;
-				margin-top: -1em;
+				margin-top: -2em;
 				position: absolute;
 				z-index: -1;
 			 }
 			 .stripe-red{
 				background-color: #E34229;
 				width: 92em;
-				padding: 3em;
+				padding: 7em;
 				margin-left: -46em;
 				margin-top: -2em;
 				position: absolute;
@@ -201,6 +210,7 @@
 				>
 					<div id="title-grid">
 						<div id="metro-logo-cell"><img id="metrologo" src="img/white_yellow.png" /></div>
+						<div id="codetalks-logo-cell"><img id="codetalks-icon" src="img/Codetalks.png"/></div>
 						<div id="qrcode-cell"><img src="img/presentation.png" /></div>
 						<div id="title-cell"><p>A hero's guide to developing with Chrome Dev Tools</p></div>
 						<div id="autor-cell"><p>Lucas Santos</p></div>
@@ -211,72 +221,140 @@
 					data-expected-duration="1m" 
 					data-background-color="#333233"
 				>
-					<div class="stripe-blue"></div>
-					<p class="stripe-blue-text">Hi, I like to develop software</p>
+					<section>
+							<div class="stripe-blue"></div>
+							<p class="stripe-blue-text">Hi, I like to develop software</p>
+					</section>
+					<section>
+							<ul>
+								<li>Fullstack</li>
+								<li>metro b2b horeca business</li>
+								<li>microservices</li>
+								<li>driverapp</li>
+								<li>React app wrappped on a cordova container</li>
+								<li>Backend scala, java, cassandra</li>
+								<li>driverapp scenario, load, tour deliveries and summaries</li>
+								<li>Preprod environment</li>
+							</ul>
+					</section>
 				</section>
 				<section 
 					data-expected-duration="40s" 
 					data-background-color="#333233"
 				>
-					<div class="stripe-blue"></div>
-					<p class="stripe-blue-text">Everything is fine when everything is fine</p>
+					<section>
+						<div class="stripe-blue"></div>
+						<p class="stripe-blue-text">Everything is fine when everything is fine</p>
+					</section>
+					<section>
+						<h3>Follow industry standards</h3>
+						<ul>
+							<li>Unit tests</li>
+							<li>Functional tests</li>
+							<li>QA</li>
+							<li>Docker, Kubernetes</li>
+						</ul>
+					</section>
+					
 				</section>
 				<section 
 					data-expected-duration="40s"
 					data-background-color="#333233"
 				>
-					<div class="stripe-gold"></div>
-					<p class="stripe-gold-text">The Evil bug</p>
+					<section>
+						<div class="stripe-gold"></div>
+						<p class="stripe-gold-text">The Evil bug</p>
+					</section>
+					<section>
+						<p>Persistent bug, not caught on tests and did not break everythong</p>
+					</section>
 				</section>
 				<section
           			data-slide-name="heroSlide"
 					  data-expected-duration="40s"
 					data-background-color="#333233"
 				>
-					<div class="stripe-green"></div>
-					<p class="stripe-green-text">When you are in a bad situation, who can help you</p>
+					<section>
+							<div class="stripe-green"></div>
+							<p class="stripe-green-text">When you are in a bad situation, who can help you</p>
+					</section>
+					<section>
+						<ul>
+							<li>Logs</li>
+							<li>DB</li>
+							<li>Tests</li>
+							<li>Copy the state from production to pre prod</li>
+						</ul>
+					</section>
+					
 				</section>
 				<section
 					data-expected-duration="40s"
 					data-background-color="#333233"
 				>
-					<div class="stripe-blue"></div>
-					<p class="stripe-blue-text">Things are in order</p>
+					<section>
+							<div class="stripe-blue"></div>
+							<p class="stripe-blue-text">Things are in order</p>
+					</section>
+					<section>
+						<p>The first step is to assert that the basic state is in order</p>
+						<p>Even regular things that should not be related can give hints about the real issues</p>
+					</section>
 				</section>
 				<section
 					data-expected-duration="40s"
 					data-background-color="#333233"
 				>
-					<div class="stripe-blue"></div>
-					<p class="stripe-blue-text">As you fail you learn</p>
+					<section>
+						<div class="stripe-blue"></div>
+						<p class="stripe-blue-text">As you fail you learn</p>
+					</section>
+					<section>
+						<p>It is hard to know where to look, but with time patterns emerge.</p>
+						<p>No silver bullet, each system is different and those patterns are only discovered with time</p>
+					</section>
 				</section>
 				<section
 					data-expected-duration="40s"
 					data-background-color="#333233"
 				>
-					<div class="stripe-blue"></div>
-					<p class="stripe-blue-text">Obvious is powerful</p>
+					<section>
+						<div class="stripe-blue"></div>
+						<p class="stripe-blue-text">Obvious is powerful</p>
+					</section>
+					<section>
+						<p>With experience the best path to assert everything is in order becomes obvious and we take it for granted.</p>
+						<p>But even the obvious is hard to deiscover and can't exist only as one person knowlege.</p>
+						<p>Solution: Documentation and automation</p>
+					</section>
 				</section>
 				<section
 				data-expected-duration="40s"
 					data-background-color="#333233"
 				>
-					<div class="stripe-blue"></div>
-					<p class="stripe-blue-text">Small gains <span>&rarr;</span> big gain</p>
+					<section>
+						<div class="stripe-blue"></div>
+						<p class="stripe-blue-text">Small gains <span>&rarr;</span> big gain</p>
+					</section>
+					<section>
+						<p>If all the small shortcuts and patterns can be joined together in a single tool, this amounts to a big improvement</p>
+					</section>
 				</section>
 				<section
 					data-expected-duration="40s"
 					data-background-color="#333233"
 				>
-					<div class="stripe-green"></div>
-					<p class="stripe-green-text">A familiar tool that is more powerful than you thought</p>
-				</section>
-				<section
-					data-expected-duration="40s"
-					data-background-color="#333233"
-				>
-					<div class="stripe-red"></div>
-					<p class="stripe-red-text">Surprise, this is the demo</p>
+					<section>
+						<div class="stripe-green"></div>
+						<p class="stripe-green-text">A familiar tool that is more powerful than you thought</p>
+					</section>
+					<section>
+						<p>Chrome dev tools and extensions can help by</p>
+						<ul>
+							<li>Executing javascript</li>
+							<li>Injecting elements on the DOM</li>
+						</ul>
+					</section>
 				</section>
 				<section
 					data-expected-duration="30s"
@@ -312,13 +390,34 @@
 					<img src="img/loadUnpacked.gif"></img>
 				</section>
 				<section
+					data-expected-duration="40s"
+					data-background-color="#333233"
+				>
+					<section>
+						<div class="stripe-red"></div>
+						<p class="stripe-red-text"><h2>Surprise</h2</p>
+						<p class="fragment stripe-red-text">This is the demo</p>
+						<p class="fragment stripe-red-text">and the REPL</p>
+						<p class="fragment stripe-red-text">and the IDE</p>
+					</section>
+					<section>
+						<h3>Dev tools</h3>
+						<ul>
+							<li>Console tab</li>
+							<li>Network tab</li>
+							<li>File tab</li>
+						</ul>
+						<p>Show the code!!!</p>
+					</section>
+				</section>
+				<section
 					data-expected-duration="1m"
-					data-background-image="img/flash.jpg"
+					data-background-image="img/unplash/speed.jpg"
 				>
 				</section>
 				<section
 					data-expected-duration="4m"
-					data-background-image="img/flash_back.jpg"
+					data-background-image="img/unplash/speed_dark.jpg"
 				>
 					<p><label for="basic-url">Load articles on truck</label></p>	
 					<div id="superSpeedForm">
@@ -326,12 +425,12 @@
 				</section>
 				<section
 					data-expected-duration="1m"
-					data-background-image="img/superman.jpg"
+					data-background-image="img/unplash/vision.jpg"
 				>
 				</section>
 				<section
 					data-expected-duration="3m"
-					data-background-image="img/superman_back.jpg"
+					data-background-image="img/unplash/vision_dark.jpg"
 				>
 					Driver tours
 					<div id="superVisionForm">
@@ -341,22 +440,27 @@
 				</section>
 				<section
 					data-expected-duration="4m"
-					data-background-image="img/superman_back.jpg"
+					data-background-image="img/unplash/vision_dark.jpg"
 				>
 					Super-vision
 					<pre><code data-trim>
-					//All potatoes sold on 2020-02-02
+					//Map reduce JSON with js (locally)
+					//HERO comes from our extension
+					//for tours on 
 					await HERO.getTours("2020-02-02")
+					  //all deliveries
 					  .then(ts => ts.map( t => t.deliveries ))
 					  .then(ds => ds.flat())
+					  //of potatoes
 					  .then(ds => ds.filter(d => d.article === "Potatoes" ))
 					  .then(ps => ps.map(p => p.quantity))
+					  //sum quantities
 					  .then(ps => ps.reduce( (a, b) => a + b, 0 ) )
 					</code></pre>
 				</section>
 				<section
 					data-expected-duration="2m"
-					data-background-image="img/superman_back.jpg"
+					data-background-image="img/unplash/vision_dark.jpg"
 				>
 					Super-vision
 					<pre><code data-trim>
@@ -368,12 +472,12 @@
 				</section>
 				<section
 					data-expected-duration="1m"
-					data-background-image="img/hulk.jpg"
+					data-background-image="img/unplash/strength.jpg"
 				>
 				</section>
 				<section
 					data-expected-duration="2m"
-					data-background-image="img/hulk_back.jpg"
+					data-background-image="img/unplash/strength_dark.jpg"
 				>
 					Super-strength
 					<div id="superStrengthForm">
@@ -384,7 +488,7 @@
 				</section>
 				<section
 					data-expected-duration="1m"
-					data-background-image="img/hulk_back.jpg"
+					data-background-image="img/unplash/strength_dark.jpg"
 				>
 					Super-strength
 					<pre><code data-trim>
@@ -394,7 +498,7 @@
 				</section>
 				<section
 					data-expected-duration="30s"
-					data-background-image="img/belt.jpg"
+					data-background-image="img/unplash/toolbelt.jpg"
 				>
 					Just another tool on your toolbelt
 				</section>

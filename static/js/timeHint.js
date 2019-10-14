@@ -37,4 +37,4 @@ let expectedTotalTime = Array.from(document.querySelectorAll(".slides section"))
     .map(d => d.endsWith("s") ? parseInt(d.split("s")[0]) : parseInt(d.split("m")[0]) * 60)
     .reduce((a,b) => a + b, 0)
 
-console.log(`${expectedTotalTime/60} m`)
+//console.log(`${expectedTotalTime/60} m`)
