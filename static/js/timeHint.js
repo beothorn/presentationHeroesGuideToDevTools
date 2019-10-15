@@ -5,8 +5,7 @@ const timeInMinutes = 35
 let startTime = 0
 let intervalId = -1
 const timer = document.getElementById("timer")
-
-Reveal.addEventListener( 'slidechanged', function( event ) {
+if(timer) Reveal.addEventListener( 'slidechanged', function( event ) {
     //console.log(event)
     if(event.currentSlide.dataset["expectedDuration"]){
         const expectedDurationStr = event.currentSlide.dataset["expectedDuration"]

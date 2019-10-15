@@ -1,6 +1,4 @@
-let loadToursForDriver = (driverName, gridId) => {
-    
-
+const loadToursForDriver = (driverName, gridId) => {
     fetch(`/api/drivers/${driverName}/tours`).then(r => r.json()).then( tours => {
         let formElement = document.getElementById(gridId)
         formElement.innerHTML = ""
@@ -38,7 +36,7 @@ let loadToursForDriver = (driverName, gridId) => {
     })
 }
 
-let loadArticles = (toursId) => {
+const loadArticles = (toursId) => {
     let allLoaded = () => {
         for(article of Array.from(document.querySelectorAll("#superSpeedFormGrid input"))) {
             if(!article.checked) return false
@@ -79,7 +77,8 @@ let loadArticles = (toursId) => {
             loadedElement.onchange = (el) =>{
                 fetch(`/api/deliveries/${deliveryId}/loaded/${el.target.checked}`, { method : "PUT" }).then(() => {
                     refreshButton()
-                    loadToursForDriver("Dragan")
+                    loadToursForDriver("Dragan", "superVisionFormGrid")
+                    loadToursForDriver("Dragan", "superVisionFormGrid2")
                 })
             }
 
@@ -99,4 +98,5 @@ let loadArticles = (toursId) => {
 
 loadArticles(1)
 loadToursForDriver("Dragan", "superVisionFormGrid")
+loadToursForDriver("Dragan", "superVisionFormGrid2")
 loadToursForDriver("Edna", "superStrengthFormGrid")

@@ -54,7 +54,7 @@
 				width: 3em;
     			height: 3em;	
 			}
-			#superVisionForm{
+			.superVisionForm{
 				margin-top: 20px;
 				border: 9px solid #fff;
 				background: #272822;
@@ -89,6 +89,12 @@
 				display: grid;
 			 	grid-template-columns: 1fr 1fr;	
 			}
+
+			#superVisionFormGrid2{
+				display: grid;
+			 	grid-template-columns: 1fr 1fr;	
+			}
+
 			#superStrengthFormGrid{
 				display: grid;
 			 	grid-template-columns: 1fr 1fr;	
@@ -122,39 +128,28 @@
 
 			 #title-grid{
 			 	display: grid;
-			 	grid-template-columns: 0.1fr 1fr 1.9fr;
-			 	grid-template-rows: 0.7fr 1fr 1.3fr;
-			 	height: 15em;
-			 }
-
-			 #metro-logo-cell{
-			 	grid-column-start: 1; 
-    			grid-column-end: 3; 
-
-    			justify-self: start;
-			 }
-
-			 #codetalks-logo-cell{
-				width: 111px;
-    			justify-self: end;
+			 	grid-template-columns: 0.7fr 1.3fr;
+			 	grid-template-rows: 1fr 1.3fr;
+			 	height: 9em;
 			 }
 
 			 #qrcode-cell{
-			 	grid-column-start: 2; 
-			 	grid-row-start: 2; 
-    			grid-row-end: 4; 
+				grid-column-start: 1;
+				grid-row-start: 1;
+				grid-row-end: 3;
 			 }
 
 			 #title-cell{
-			 	grid-column-start: 3; 
-				justify-self: start;
+				grid-column-start: 2;
+    			text-align: right;
 			 }
 
 			 #autor-cell{
-			 	grid-column-start: 3; 
-			 	justify-self: end;
-			 	font-size: 26px;
+				grid-column-start: 2;
+				justify-self: end;
+				font-size: 26px;
 			 }
+
 			 .stripe-green{
 				background-color: #5EC299;
 				width: 92em;
@@ -194,14 +189,53 @@
 			 .stripe-gold-text{
 				color:#272822;
 			 }
+			 .stripe-gray-transparent{
+				background-color: #414141e3;
+				width: 92em;
+				padding: 3em;
+				margin-left: -46em;
+				margin-top: -2em;
+				position: absolute;
+				z-index: -1;
+			 }
 			 .finalLinks{
 				 display: block;
 				 font-size: 0.6em;
 			 }
+
+			 #brand-bar{
+				position: fixed;
+  				top: 0;
+  				width: 100%;
+				z-index: 1;
+			 }
+
+			 #leftLogo{
+				 width: 50%;
+				 float: left;
+			 }
+			 #leftLogo img{
+				width: 100px;
+    			padding: 19px;
+			 }
+			 #rightLogo{
+				 width: 50%;
+				 float: right;
+				 text-align: right;
+			 }
+
+			 #rightLogo img{
+				width: 58px;
+    			padding: 9px;
+			 }
 		</style>
 	</head>
 	<body data-presentation="true">
-	<div id="timer"></div>
+		<!-- <div id="timer"></div> removed to make space to logos -->
+		<div id="brand-bar">
+			<div id="leftLogo"><img src="img/white_yellow.png" /></div>
+			<div id="rightLogo"><img src="img/Codetalks.png"/></div>
+		</div>
 		<div class="reveal">
 			<div class="slides">
 				<section 
@@ -209,8 +243,6 @@
 					data-background-color="#333233"
 				>
 					<div id="title-grid">
-						<div id="metro-logo-cell"><img id="metrologo" src="img/white_yellow.png" /></div>
-						<div id="codetalks-logo-cell"><img id="codetalks-icon" src="img/Codetalks.png"/></div>
 						<div id="qrcode-cell"><img src="img/presentation.png" /></div>
 						<div id="title-cell"><p>A hero's guide to developing with Chrome Dev Tools</p></div>
 						<div id="autor-cell"><p>Lucas Santos</p></div>
@@ -378,10 +410,6 @@
 						"permissions": ["yourUrl"],
 					}
 					</code></pre>
-					<!--
-						Dev tools is a powerfull REPL. It can render tables. It can render images.
-						It can do requests using the fetch api
-					-->
 				</section>
 				<section
 					data-expected-duration="10s"
@@ -412,8 +440,16 @@
 				</section>
 				<section
 					data-expected-duration="1m"
+					data-background-color="#333233"
+				>
+					<h1>Let's get superpowers</h1>
+				</section>
+				<section
+					data-expected-duration="1m"
 					data-background-image="img/unplash/speed.jpg"
 				>
+					<div class="stripe-gray-transparent"></div>
+					<h2>Super-speed</h2>
 				</section>
 				<section
 					data-expected-duration="4m"
@@ -427,13 +463,15 @@
 					data-expected-duration="1m"
 					data-background-image="img/unplash/vision.jpg"
 				>
+					<div class="stripe-gray-transparent"></div>
+					<h2>Super-vision</h2>
 				</section>
 				<section
 					data-expected-duration="3m"
 					data-background-image="img/unplash/vision_dark.jpg"
 				>
-					Driver tours
-					<div id="superVisionForm">
+					<p>Driver tours</p>
+					<div id= "superVisionForm" class="superVisionForm">
 						<div id="superVisionFormGrid">
 						</div>
 					</div>
@@ -442,11 +480,11 @@
 					data-expected-duration="4m"
 					data-background-image="img/unplash/vision_dark.jpg"
 				>
-					Super-vision
+					<h2>Super-vision</h2>
 					<pre><code data-trim>
 					//Map reduce JSON with js (locally)
-					//HERO comes from our extension
-					//for tours on 
+					//HERO is a global injected by 
+					//our extension
 					await HERO.getTours("2020-02-02")
 					  //all deliveries
 					  .then(ts => ts.map( t => t.deliveries ))
@@ -462,7 +500,7 @@
 					data-expected-duration="2m"
 					data-background-image="img/unplash/vision_dark.jpg"
 				>
-					Super-vision
+					<h2>Super-vision</h2>
 					<pre><code data-trim>
 					//Not only text
 					HERO.deliveries(1)
@@ -474,12 +512,14 @@
 					data-expected-duration="1m"
 					data-background-image="img/unplash/strength.jpg"
 				>
+					<div class="stripe-gray-transparent"></div>
+					<h2>Super-strength</h2>
 				</section>
 				<section
 					data-expected-duration="2m"
 					data-background-image="img/unplash/strength_dark.jpg"
 				>
-					Super-strength
+					<h2>Super-strength</h2>
 					<div id="superStrengthForm">
 						<div id="superStrengthFormGrid">
 						</div>
@@ -490,11 +530,15 @@
 					data-expected-duration="1m"
 					data-background-image="img/unplash/strength_dark.jpg"
 				>
-					Super-strength
+					<h2>Super-strength</h2>
 					<pre><code data-trim>
 						//Set any delivery to completed
 						HERO.setTourToFinished(id)
-				    </code></pre>
+					</code></pre>
+					<div id= "superVisionForm2" class="superVisionForm">
+						<div id="superVisionFormGrid2">
+						</div>
+					</div>
 				</section>
 				<section
 					data-expected-duration="30s"
@@ -504,15 +548,26 @@
 				</section>
 				<section
 					data-expected-duration="30s"
-					data-background-color="#333233"
+					data-background-image="img/unplash/share.jpg"
 				>
-					Share your power
+					<div class="stripe-gray-transparent"></div>
+					<h1>Share your power</h1>
 				</section>
 				<section
 					data-background-color="#333233"
 				>
 					<img width="600px" src="img/sourcecode.png" />
 					<span class="finalLinks">github.com/beothorn/presentationHeroesGuideToDevTools</span>
+				</section>
+				<section>
+					<p>Image credits (Unsplash):</p>
+					<ul>
+						<li>Joseph Chan</li>
+						<li>Limor Zellermayer</li>
+						<li>King Lip</li>
+						<li>Serge Kutuzov</li>
+						<li>Marc-Olivier Jodoin</li>
+					</ul>
 				</section>
 			</div>
 		</div>
