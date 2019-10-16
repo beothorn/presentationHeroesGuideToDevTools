@@ -27,20 +27,51 @@ is also in the slide at the end of this presentation.
 
 I am a developer, and I like to create.
 
-I am currently a fullstack developer in the app used by drivers 
-delivering goods for the Metro Cash and Carry.
+Currently I am a fullstack developer working for metronom.
 
-The DriverApp lives inside the ecossystem of microservices inside 
-Metronom and Metro, and is the bridge between deliveries and the 
-rest of our system.
+Metronom is the company providing IT solutions for Metro.
 
-The actual app is a ReactApp packaged with Cordova, with a backend 
-using Spring Boot, Java, Scala and Cassandra.
+Metro is a b2b company in the food sector. It is a Cash and 
+Carry that provides goods and services to hotels, restaurants
+and so on.
 
-The app is used by the drivers to load the articles to be delivered 
-in the truck, controlling the deposits and returns, getting the 
-signature from the clients, generating delivery summaries among 
-other stuff.
+Inside Metronom we have a big microservices ecossystem.
+We have the main website were the customers can shop online, 
+we have the companion app, support for the clients websites
+and among all of those we have DriverApp, the team I am 
+currently allocated to.
+
+The DriverApp is the app used by the truck drivers to manage
+the deliveries.
+
+Driverapp is a ReactApp packaged with Cordova.
+On the backend we are using Spring Boot, Java, Scala and for 
+persistence Cassandra.
+
+## Slide with depot image
+
+The day of the truck driver starts on the depot. There they
+get a list of all the goods that they need to load on the truck.
+
+As they load the goods they scan these codebars using the app.
+
+After everything is loaded they can start the tour.
+
+## Slide with truck unloading goods
+
+When the driver gets to each client they need to mark the article
+as delivered and get the signature from the client, and the payment 
+if aplicable.
+
+Every time the driver finishes a delivery the system generates a summary
+and sends it to the client and to the stores email.
+
+At the end of the day the driver needs to go back to the depot to
+leave returns and deposits and then they finish the tour.
+
+At this point a new day summary is sent to the store.
+
+But lets tal about bugs.
 
 ## Everything is fine when everything is fine
 
