@@ -75,27 +75,21 @@ But lets tal about bugs.
 
 ## Everything is fine when everything is fine
 
-And we follow the common practice of our industry.
-We have unit tests to protect us, we have functional tests, we do QA, 
-smoke tests and all of those let us sleep at night.
+At metronom we follow the common practice of our industry.
+We have unit tests, we have functional tests, we do QA, 
+smoke tests and all of those thing that makes us sleep better at night.
 
-We have a pre-production environment, where we can run manual tests.
+We also have a pre-production environment, where we can run manual tests.
 
-We have our docker image repository and our infrastructure on 
-kubernetes, so if we realize something went wrong with our deploy 
-we can revert to our last image with ease.
-
-And all this setup give us peace of mind. When everything is fine, 
-everything is fine.
+If a bug that would bring down the system is introduced, usually we
+realise it sooner.
 
 ## The Evil bug
 
-But sometimes everything looks fine, until it isn't. 
+Bt there is also a different kind of bug. It is the one that don't set things on
+fire, but hides in plain sight while it is corrupting your data.
 
-Sometimes things goes weird and it is hard to understand what is 
-going on.
-
-And where you start looking to solve these issues? 
+The clients start to see weird things and it is hard to understand what is going on.
 
 Time to keep calm and put your superhero cape.
 
@@ -112,65 +106,36 @@ who knows, even save the day.
 
 ## Things are in order
 
-I want to talk about how to investigate issues on production code.
+One good first step is to check that everything is in order. 
+While doing a sanity check can give you the first hints of
+what is going on.
 
-Every issue is diferent, but the starting point is doing a sanity check.
+After investigating more and more issues you can start to learn
+a what things you need to check first.
 
-You start small, is the basic stuff in order?
-
-You can reach a big chunck of the errors just doing basic checks.
-
-You can learn things to check by investigating new errors.
+And even though every issue is diferent, a pattern starts to emerge. 
 
 ## As you fail you learn
 
-For example, on driver app the first thing to check is what 
-deliveries where already synced and at what time. Seems simple but 
-this eliminates a lot of problems that we would not be able to see 
-if we went in another direction.
-
-Usually the starting point is calling the rest interface.
-
-I used to use rest clients to look at this information. 
-But they are not powerful enough. It is complicated to filter 
-information,
-no mechanism to do complex stuff as reusing data from one query to 
-the other.
-
-No output but raw jsons.
-
-A lot of copying, pasting and text searching
-
-You need to fail a lot. Learn what are the starting points
-to investigate issues and then create the tools for you to easily 
-access them.
+Then investigating issues becomes easier because you already know 
+those basic things that you need to check by heart.
 
 ## Obvious is powerful
 
-As you investigate new bugs and you use your own system you end up 
-learning all those patterns.
+After some time these things becomes obvious, and it is easy to
+forget that when you started they weren't.
 
-Then those patterns become obvious. And they usually are, but we 
-forget all the things that we eliminated while learning those patterns.
-
-But what is obvous for you is not always obvious for others, and 
-you need a way to give form to those patterns, make them more 
-discoverable and aproachable.
-
-One way to do this is documentation. Another way is code.
+So it would be nice if all of these knowledge don't exist only inside your head.
 
 ## Small gains → big gain
 
-Each of those obvious patterns don't add so much value by themselves, 
-but when combined they end up giving a huge boost on speed.
-
+If you bring all these knowledge into a single place you can transform this collection
+of small patterns in a great tool. 
+I want to show one of the ways you can do it using chrome and extensions.
 
 ## A familiar tool that is more powerful than you thought
 
-But I want to show you an unlikely help.
-I has the advantage of being a powerfull REPL, with lots of powerful 
-features,
-flexible and being the very thing your users have to use your system.
+...
 
 ## Surprise, this is the demo
 
