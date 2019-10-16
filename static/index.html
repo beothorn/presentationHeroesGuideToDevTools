@@ -50,6 +50,11 @@
 				background: #272822;
 				padding: 15px;
 			}
+			#superSpeedForm2{
+				border: 9px solid #fff;
+				background: #272822;
+				padding: 15px;
+			}
 			input[type="checkbox"]{
 				width: 3em;
     			height: 3em;	
@@ -73,6 +78,10 @@
 				padding: 15px;
 			}
 			#superSpeedFormGrid{
+				display: grid;
+			 	grid-template-columns: 1fr 1fr;	
+			}
+			#superSpeedForm2Grid{
 				display: grid;
 			 	grid-template-columns: 1fr 1fr;	
 			}
@@ -243,7 +252,7 @@
 					data-background-color="#333233"
 				>
 					<div id="title-grid">
-						<div id="qrcode-cell"><img src="img/presentation.png" /></div>
+						<div id="qrcode-cell"><img src="img/presentationQR.svg" /></div>
 						<div id="title-cell"><p>A hero's guide to developing with Chrome Dev Tools</p></div>
 						<div id="autor-cell"><p>Lucas Santos</p></div>
 					</div>
@@ -515,8 +524,10 @@
 					//Not only text
 					HERO.deliveries(1)
 					HERO.logo()
-					HERO.drawSomething()
+					HERO.alreadyLoadedOnDate("2020-02-02")
 					</code></pre>
+					<div id="superSpeedForm2">
+					</div>
 				</section>
 				<section
 					data-expected-duration="1m"
@@ -566,7 +577,7 @@
 				<section
 					data-background-color="#333233"
 				>
-					<img width="600px" src="img/sourcecode.png" />
+					<img width="600px" src="img/sourceQR.svg" />
 					<span class="finalLinks">github.com/beothorn/presentationHeroesGuideToDevTools</span>
 				</section>
 				<section>

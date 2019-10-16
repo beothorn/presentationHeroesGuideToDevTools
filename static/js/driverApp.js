@@ -36,9 +36,9 @@ const loadToursForDriver = (driverName, gridId) => {
     })
 }
 
-const loadArticles = (toursId) => {
+const loadArticles = (toursId, formId) => {
     let allLoaded = () => {
-        for(article of Array.from(document.querySelectorAll("#superSpeedFormGrid input"))) {
+        for(article of Array.from(document.querySelectorAll("#"+formId+"Grid input"))) {
             if(!article.checked) return false
         }
         return true
@@ -46,11 +46,11 @@ const loadArticles = (toursId) => {
 
     let refreshButton = () => (document.getElementById("startTour").style.display = allLoaded() ? "block" : "none")
 
-    let formElement = document.getElementById("superSpeedForm")
+    let formElement = document.getElementById(formId)
     formElement.innerHTML = ""
 
     let articlesList = document.createElement("div")
-    articlesList.id = "superSpeedFormGrid"
+    articlesList.id = formId+"Grid"
     formElement.appendChild(articlesList)
 
     let startTour = document.createElement("button")
@@ -96,7 +96,8 @@ const loadArticles = (toursId) => {
 
 
 
-loadArticles(1)
+loadArticles(1, "superSpeedForm")
+loadArticles(1, "superSpeedForm2")
 loadToursForDriver("Dragan", "superVisionFormGrid")
 loadToursForDriver("Dragan", "superVisionFormGrid2")
 loadToursForDriver("Edna", "superStrengthFormGrid")

@@ -4,19 +4,15 @@ if(document.body.dataset['presentation']){
         getTours: (date) => fetch("/api/tours/"+date).then(r => r.json()),
         getTour: (id) => fetch("/api/tour/"+id).then(r => r.json()),
         getToursForDriver: (driversName) => fetch(`/api/drivers/${driversName}/tours`).then(r => r.json()),
-        setTourToFinished: (id) => 
-            fetch("/api/tour/"+id).then(r => r.json()).then( t => {
-                t.finished = true
-                fetch("/api/tour/"+id, {
-                    method: "PUT", 
-                    headers: {"Content-Type": "application/json"},
-                    body: JSON.stringify(t)
-                })
-            }
-            ),
-        deliveries: (tourId) =>{
-            fetch(`/api/tours/${tourId}/deliveries`).then(r => r.json()).then( ds => console.table(ds))
-        },
+        setTourToFinished: (id) => fetch("/api/tour/"+id).then(r => r.json()).then( t => {
+            t.finished = true
+            fetch("/api/tour/"+id, {
+                method: "PUT", 
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(t)
+            })
+        }),
+        deliveries: (tourId) => fetch(`/api/tours/${tourId}/deliveries`).then(r => r.json()).then( ds => console.table(ds)),
         drawSomething: () => {
             let c = document.createElement("canvas")
             c.style.display = "none"
@@ -35,6 +31,24 @@ if(document.body.dataset['presentation']){
             ctx.stroke();
             let pngUrl = c.toDataURL();
             console.log("%c       ", `font-size: 100px; background: url(${pngUrl}) no-repeat`)
+        },
+        alreadyLoadedOnDate: (date) => {
+            HERO.getTours(date).then(ts =>{
+                let allDeliveries = ts.map( t => t.deliveries).flat()
+                let deliveriesCount = allDeliveries.length
+                let deliveriesFinishedCount = allDeliveries.filter(d => d.loaded).length
+                let c = document.createElement("canvas")
+                c.style.display = "none"
+                c.width = 1000
+                var ctx = c.getContext("2d");
+                ctx.fillStyle = "white"
+                ctx.fillRect(0, 0, 500, 500);
+                ctx.fillStyle = "blue"
+                ctx.fillRect(0, 10, 500*(deliveriesFinishedCount/deliveriesCount), 100);
+                let pngUrl = c.toDataURL();
+                console.log("%c       ", `font-size: 100px; background: url(${pngUrl}) no-repeat`)
+                console.log({deliveriesCount, deliveriesFinishedCount})
+            })
         },
         console: {
             h1 : (str) => console.log('%c'+str,'font-size: 20px; font-weight: bold;'),
@@ -85,8 +99,6 @@ if(document.body.dataset['presentation']){
         })
         superVisionForm.appendChild(hideShowButton)
     }
-    
-    
 
     let updateSuperVision = (formId) => {
         let superVisionExtraInfo = document.getElementById(formId+"ExtraInfo")
