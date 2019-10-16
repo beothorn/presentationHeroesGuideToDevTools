@@ -44,7 +44,7 @@ const loadArticles = (toursId, formId) => {
         return true
     }
 
-    let refreshButton = () => (document.getElementById("startTour").style.display = allLoaded() ? "block" : "none")
+    let refreshButton = () => (document.getElementById(formId+"startTour").style.display = allLoaded() ? "block" : "none")
 
     let formElement = document.getElementById(formId)
     formElement.innerHTML = ""
@@ -54,7 +54,7 @@ const loadArticles = (toursId, formId) => {
     formElement.appendChild(articlesList)
 
     let startTour = document.createElement("button")
-    startTour.id = "startTour"
+    startTour.id = formId+"startTour"
     startTour.appendChild(document.createTextNode("Start Tour"))
 
     fetch(`/api/tours/${toursId}/deliveries`).then(r => r.json()).then( ds => {

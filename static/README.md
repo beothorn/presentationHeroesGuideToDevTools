@@ -63,6 +63,9 @@ When the driver gets to each client they need to mark the article
 as delivered and get the signature from the client, and the payment 
 if aplicable.
 
+We try to sync the state of the tour as much as possible, but it is 
+expected that the driver will be offline for big amounts of time.
+
 Every time the driver finishes a delivery the system generates a summary
 and sends it to the client and to the stores email.
 
@@ -139,21 +142,15 @@ I want to show one of the ways you can do it using chrome and extensions.
 
 ## Surprise, this is the demo
 
-explain driverapp, the flow and the reports
 
 introduce the dev tools, the console tab, the network tab,
+the source tab
 
+show the code for the slides, the toy system and the extension
 
-For example, here we are, right now inside a browser. And I'll 
-demonstrate to you that with some preparation, it can give you an 
-edge when you need to investigate that nasty bug.
+explain each one
 
-There is a toy system running in the background with a persisted state. 
-
-The forms on the slides are really calling the server and making 
-changes.
-
-There is also an extension that is injecting code and adding extra 
+Point out that there is also an extension that is injecting code and adding extra 
 elements to our slides.
 
 ## Let's give ourselves superpowers
@@ -162,8 +159,8 @@ elements to our slides.
 ## Super-speed
 
 The first thing we want is speed. We want to go directly to the heart 
-of the issue and not waste our time on procedures that may make sense 
-on real use cases, but not for debugging our app.
+of the issue and not waste our time on things that may make sense 
+for the client, but not for debugging our app.
 
 For this we need shortcuts and autocompletions that gets everything 
 that is not interesting out of the way.
@@ -209,20 +206,17 @@ to the customer and to the store.
 After all tours are finished we send a summary of all tours to the 
 store.
 
-We try to sync the state of the tour as much as possible, but it is 
-expected that the driver will be offline for big amounts of time.
-
 Then we can have this button here. This is also injected by the 
 extension.
 
 If we have a stuck device the last sync and the app version for a 
 tour can give us a starting point on where to start looking.
 
-Again, we could look at the logs, database, but it is really 
+We could look at the logs, database, but it is really 
 convenient to already have this information in the context of the app.
 
-Also, for this, you will need to create the endpoints obvously with 
-some kind of authentication
+For this, you will need to create some endpoints, obviously with 
+ authentication
 
 Also there is another way for us to have this supervision.
 
@@ -266,5 +260,5 @@ The extension injects here a button to finish all tours.
 The core idea is to collect all the knowledge acquired about all 
 those patterns, encode them as code and make them available on the UI.
 
-And put the extension on some version control. This way the knowledge 
+Put the extension on some version control. This way the knowledge 
 can be shared and collectivelly improved.
