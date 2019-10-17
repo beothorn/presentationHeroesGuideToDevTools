@@ -24,7 +24,7 @@ let resetDb = () => {
     db = {
         "clients":[
             {"name": "Alice Restaurant"},
-            {"name": "Bob's Burguer"},
+            {"name": "Bob's Burger"},
             {"name": "Carol Soups"},
             {"name": "Betty's"},
         ],
@@ -69,7 +69,7 @@ let resetDb = () => {
             {
                 "id": 2,
                 "driver": "Dragan",
-                "client": "Bob's Burguer",
+                "client": "Bob's Burger",
                 "finished": true,
                 "invoiced": true,
                 "date": "2020-02-02",
@@ -78,7 +78,7 @@ let resetDb = () => {
                 "deliveries":[
                     {
                         "id": 13,
-                        "article": "Burguer box",
+                        "article": "Burger box",
                         "quantity": 10,
                         "loaded": true,
                         "delivered": true,
