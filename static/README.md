@@ -30,9 +30,10 @@ Currently I am a fullstack developer working for metronom.
 
 Metronom is the company providing IT solutions for Metro.
 
-Metro is a b2b company in the food sector. It is a Cash and 
-Carry that provides goods and services to hotels, restaurants
-and so on.
+METRO is Food Wholesale Company, we are offering our goods 
+in stores and online for business customers. So owners 
+of restaurants, hotels and such can order goods and receive
+other services from metro.
 
 Inside Metronom we have a big microservices ecossystem.
 We have the main website were the customers can shop online, 
