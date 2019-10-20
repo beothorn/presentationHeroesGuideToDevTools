@@ -15,9 +15,6 @@ Listen to my story and discover how you can add special debugging
 features for your web application using extensions, call your 
 REST API, inject special components and much more.
 
-## Goal time
-30 minutes
-
 ## Title
 
 This presentation is available at the url on this QR code. The QR code 
@@ -28,6 +25,8 @@ is also in the slide at the end of this presentation.
 I am a developer, and I like to create.
 
 Currently I am a fullstack developer working for metronom.
+
+## About metronom
 
 Metronom is the company providing IT solutions for Metro.
 
@@ -41,6 +40,8 @@ we have the companion app, support for the clients websites
 and among all of those we have DriverApp, the team I am 
 currently allocated to.
 
+## Slide with depot image
+
 The DriverApp is the app used by the truck drivers to manage
 the deliveries.
 
@@ -48,7 +49,7 @@ Driverapp is a ReactApp packaged with Cordova.
 On the backend we are using Spring Boot, Java, Scala and for 
 persistence Cassandra.
 
-## Slide with depot image
+
 
 The day of the truck driver starts on the depot. There they
 get a list of all the goods that they need to load on the truck.
