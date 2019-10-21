@@ -87,7 +87,7 @@ if(document.body.dataset['presentation']){
 
         //Driver name is hardcoded, in a real situation we would get the driver's
         //name from somewhere else
-        HERO.getToursForDriver("Dragan").then( ts => {
+        HERO.getToursForDriver("Charlie").then( ts => {
             for(let t of ts){
                 let extraInfo = document.createElement("p")
                 extraInfo.style.fontSize = "24px"

@@ -29,13 +29,13 @@ let resetDb = () => {
             {"name": "Betty's"},
         ],
         "drivers":[
-            {"name": "Dragan"},
+            {"name": "Charlie"},
             {"name": "Edna"},
         ],
         "tours":[
             {
                 "id": 1,
-                "driver": "Dragan",
+                "driver": "Charlie",
                 "client": "Alice Restaurant",
                 "finished": false,
                 "invoiced": false,
@@ -68,7 +68,7 @@ let resetDb = () => {
             },
             {
                 "id": 2,
-                "driver": "Dragan",
+                "driver": "Charlie",
                 "client": "Bob's Burger",
                 "finished": true,
                 "invoiced": true,

@@ -77,8 +77,8 @@ const loadArticles = (toursId, formId) => {
             loadedElement.onchange = (el) =>{
                 fetch(`/api/deliveries/${deliveryId}/loaded/${el.target.checked}`, { method : "PUT" }).then(() => {
                     refreshButton()
-                    loadToursForDriver("Dragan", "superVisionFormGrid")
-                    loadToursForDriver("Dragan", "superVisionFormGrid2")
+                    loadToursForDriver("Charlie", "superVisionFormGrid")
+                    loadToursForDriver("Charlie", "superVisionFormGrid2")
                 })
             }
 
@@ -98,6 +98,6 @@ const loadArticles = (toursId, formId) => {
 
 loadArticles(1, "superSpeedForm")
 loadArticles(1, "superSpeedForm2")
-loadToursForDriver("Dragan", "superVisionFormGrid")
-loadToursForDriver("Dragan", "superVisionFormGrid2")
+loadToursForDriver("Charlie", "superVisionFormGrid")
+loadToursForDriver("Charlie", "superVisionFormGrid2")
 loadToursForDriver("Edna", "superStrengthFormGrid")
